@@ -270,7 +270,8 @@ body {
 
 .reveal section img.img-no-format {
   border: none;
-  background: none; }
+  background: none;
+  box-shadow: none; }
 
 .reveal section h2 {
   color: #fff;
