@@ -1,0 +1,73 @@
+/**
+ * Black theme for reveal.js. This is the opposite of the 'white' theme.
+ *
+ * By Hakim El Hattab, http://hakim.se
+ */
+
+
+// Default mixins and settings -----------------
+@import "../template/mixins";
+@import "../template/settings";
+// ---------------------------------------------
+
+
+// Include theme-specific fonts
+@import url(../../lib/font/source-sans-pro/source-sans-pro.css);
+
+
+// Override theme settings (see ../template/settings.scss)
+$backgroundColor: #282c34;
+
+$mainColor: #fff;
+$headingColor: #61dafb;
+
+$mainFontSize: 42px;
+$mainFont: -apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Oxygen,Ubuntu,Cantarell,Fira Sans,Droid Sans,Helvetica Neue,sans-serif;
+$headingFont: -apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Oxygen,Ubuntu,Cantarell,Fira Sans,Droid Sans,Helvetica Neue,sans-serif;
+$headingTextShadow: none;
+$headingLetterSpacing: normal;
+$headingTextTransform: uppercase;
+$headingFontWeight: 600;
+$linkColor: #61dafb;
+$linkColorHover: lighten( $linkColor, 15% );
+$selectionBackgroundColor: lighten( $linkColor, 25% );
+
+$heading1Size: 2.5em;
+$heading2Size: 1.6em;
+$heading3Size: 1.3em;
+$heading4Size: 1.0em;
+
+section.has-light-background {
+    &, h1, h2, h3, h4, h5, h6 {
+        color: #282c34;
+    }
+
+    a {
+        background-color: rgba(187,239,253,0.3);
+        border-bottom: 1px solid rgba(0,0,0,0.2);
+        color: #1a1a1a;
+    }
+}
+
+// Theme template ------------------------------
+@import "../template/theme";
+// ---------------------------------------------
+
+.reveal section img.img-no-format {
+    border: none;
+    background: none;
+}
+
+.reveal section h2 {
+    color: #fff;
+    font-weight: 200;
+    text-transform: capitalize;
+}
+
+.reveal section p {
+    font-weight: 300;
+}
+
+.reveal section a {
+    border-bottom: 1px dotted #fff;
+}
