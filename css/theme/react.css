@@ -273,7 +273,16 @@ body {
   background: none;
   box-shadow: none; }
 
+.reveal section h1 {
+  font-weight: 500;
+  letter-spacing: 0.01em; }
+
 .reveal section h2 {
+  font-weight: 500;
+  letter-spacing: 0.01em;
+  text-transform: capitalize; }
+
+.reveal section h3 {
   color: #fff;
   font-weight: 200;
   text-transform: capitalize; }
