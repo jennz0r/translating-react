@@ -1,0 +1,8 @@
+node_modules/
+plugin/
+test/
+css/
+
+.DS_Store
+CONTRIBUTING.md
+demo.html
