@@ -30,15 +30,106 @@
 					<p>by <a href="http://mochimachine.com/">Jennifer Wong</a></p>
 				</section>
 				<section>
+					<section data-background="/lib/img/whoru.gif"></section>
 					<section>
-						<h1>ME</h1>
-						<img src="/lib/img/envoy-lights.jpg" class="img-no-format" width="450px" />
+						<p>Add dem pictures of yrself</p>
 					</section>
 					<section data-background="/lib/img/envoy-lights.jpg"></section>
 					<section>
 						<div>
-							<h1>we're hiring</h1>
+							<h1>Envoy</h1>
+							<h3>we're <a href="https://envoy.com/jobs/">hiring</a>!</h3>
 						</div>
+					</section>
+				</section>
+				<section>
+					<section>
+						<h1>What even is React?</h1>
+						<img src="/lib/img/react.svg" alt="react logo" class="img-no-format" width="100px" height="100px"/>
+					</section>
+					<section>
+						<p>Add some silly gif here of me writing React stupidly</p>
+					</section>
+				</section>
+				<section>
+					<section>
+						<h1>What's confusing?</h1>
+						<img src="/lib/img/react.svg" alt="react logo" class="img-no-format" width="100px" height="100px"/>
+					</section>
+				</section>
+				<section>
+					<section>
+						<h1>Top Level API</h1>
+						<a href="https://github.com/facebook/react/blob/659a29cecf74301532354261369e9048aac6e20f/packages/react/src/React.js">API in GitHub</a>
+					</section>
+				</section>
+				<section>
+					<section>
+						<h1>React COMPONENT</h1>
+						<a href="https://github.com/facebook/react/blob/659a29cecf74301532354261369e9048aac6e20f/packages/react/src/ReactBaseClasses.js">React Base Classes in GitHub</a>
+					</section>
+					<section>
+						<h3>React.Component</h3>
+						<pre><code>
+function Component(props, context, updater) {
+	this.props = props;
+	this.context = context;
+	// If a component has string refs, 
+	// we will assign a different object later.
+	this.refs = emptyObject;
+	// We initialize the default updater but 
+	// the real one gets injected by therenderer.
+	this.updater = updater || ReactNoopUpdateQueue;
+}
+						</code></pre>
+					</section>
+					<section>
+						<h3>React.PureComponent</h3>
+						<pre><code>
+function PureComponent(props, context, updater) {
+  this.props = props;
+  this.context = context;
+  // If a component has string refs, we will assign a different object later.
+  this.refs = emptyObject;
+  this.updater = updater || ReactNoopUpdateQueue;
+}
+						</code></pre>
+					</section>
+				</section>
+				<section>
+					<section>
+						<h1>JSX</h1>
+					</section>
+					<section>
+						<a href="https://github.com/facebook/react/blob/master/packages/react/src/ReactElement.js">React Element on GitHub</a>
+					</section>
+					<section>
+						<pre><code>
+export function createElement(type, config, children) {
+						</code></pre>
+						<pre><code>
+return ReactElement(
+  type,
+  key,
+  ref,
+  self,
+  source,
+  ReactCurrentOwner.current,
+  props,
+);
+						</code></pre>
+					</section>
+					<section>
+						<h2>What's a React Element?</h2>
+						<a href="https://github.com/facebook/react/blob/master/packages/react/src/ReactElement.js#L111">React Element code section</a>
+					</section>
+					<section>
+						<pre><code>
+const ReactElement = function(type, key, ref, self, source, owner, props) {
+						</code></pre>
+					</section>
+					<section>
+						<p>OH IT'S JUST A PROTOTYPE.</p>
 					</section>
 				</section>
 			</div>
