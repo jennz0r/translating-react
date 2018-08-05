@@ -285,7 +285,7 @@ body {
 .reveal section h3 {
   color: #fff;
   font-weight: 200;
-  text-transform: capitalize; }
+  text-transform: none; }
 
 .reveal section p {
   font-weight: 300; }

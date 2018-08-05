@@ -30,15 +30,22 @@
 					<p>by <a href="http://mochimachine.com/">Jennifer Wong</a></p>
 				</section>
 				<section>
+					<section>
+						<h1>Who R U?</h1>
+					</section>
 					<section data-background="/lib/img/whoru.gif"></section>
 					<section>
-						<p>Add dem pictures of yrself</p>
+						<img src="/lib/img/horse.jpg" alt="react logo" class="img-no-format" width="400px" height="300px" />
+						<img src="/lib/img/yak.jpg" alt="react logo" class="img-no-format" width="400px" height="300px" />
+						<img src="/lib/img/eagle.jpg" alt="react logo" class="img-no-format" width="400px" height="300px" />
+						<img src="/lib/img/camel.jpg" alt="react logo" class="img-no-format" width="400px" height="300px" />
 					</section>
 					<section data-background="/lib/img/envoy-lights.jpg"></section>
 					<section>
 						<div>
 							<h1>Envoy</h1>
-							<h3>we're <a href="https://envoy.com/jobs/">hiring</a>!</h3>
+							<h3>We're <a href="https://envoy.com/jobs/">hiring</a>!</h3>
+							<p>Add photos of doggos?</p>
 						</div>
 					</section>
 				</section>
@@ -92,7 +99,8 @@ function PureComponent(props, context, updater) {
   this.props = props;
   this.context = context;
 
-  // If a component has string refs, we will assign a different object later.
+  // If a component has string refs,
+  // we will assign a different object later.
   this.refs = emptyObject;
   this.updater = updater || ReactNoopUpdateQueue;
 }
@@ -127,7 +135,15 @@ export function createElement(type, config, children) {
 					</section>
 					<section>
 						<pre><code class="javascript" data-trim data-noescape contenteditable>
-const ReactElement = function(type, key, ref, self, source, owner, props) {
+const ReactElement = function(
+	type,
+	key,
+	ref,
+	self,
+	source,
+	owner,
+	props
+) {
 						</code></pre>
 					</section>
 					<section>
