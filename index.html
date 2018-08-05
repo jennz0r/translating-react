@@ -55,7 +55,26 @@
 						<img src="/lib/img/react.svg" alt="react logo" class="img-no-format" width="100px" height="100px"/>
 					</section>
 					<section>
-						<p>Add some silly gif here of me writing React stupidly</p>
+						<h3>A JavaScript library for building user interfaces</h3>
+					</section>
+					<section>
+						<h3>Declarative</h3>
+						<p>React makes it painless to create interactive UIs. Design simple views for each state in your application, and React will efficiently update and render just the right components when your data changes.</p>
+						<p>Declarative views make your code more predictable and easier to debug.</p>
+					</section>
+					<section>
+						<h3>Component-Based</h3>
+						<p>Build encapsulated components that manage their own state, then compose them to make complex UIs.</p>
+						<p>Since component logic is written in JavaScript instead of templates, you can easily pass rich data through your app and keep state out of the DOM.</p>
+					</section>
+					<section>
+						<h3>Learn Once, Write Anywhere</h3>
+						<p>We don’t make assumptions about the rest of your technology stack, so you can develop new features in React without rewriting existing code.</p>
+						<p>React can also render on the server using Node and power mobile apps using React Native.</p>
+					</section>
+					<section data-background="/lib/img/typing.gif">
+					</section>
+					<section>
 					</section>
 				</section>
 				<section>
@@ -63,47 +82,49 @@
 						<h1>What's confusing?</h1>
 						<img src="/lib/img/react.svg" alt="react logo" class="img-no-format" width="100px" height="100px"/>
 					</section>
+					<section>
+						<p>Honestly, sometimes I forget that React actually is just JavaScript.</p>
+					</section>
 				</section>
 				<section>
 					<section>
 						<h1>Top Level API</h1>
 						<a href="https://github.com/facebook/react/blob/659a29cecf74301532354261369e9048aac6e20f/packages/react/src/React.js">API in GitHub</a>
 					</section>
+					<section>
+						<h3>This is literally all React is.</h3>
+						<a href="https://github.com/facebook/react/blob/659a29cecf74301532354261369e9048aac6e20f/packages/react/src/React.js#L36-L65">React defined in Top Level API code</a>
+					</section>
 				</section>
 				<section>
 					<section>
-						<h1>React COMPONENT</h1>
-						<a href="https://github.com/facebook/react/blob/659a29cecf74301532354261369e9048aac6e20f/packages/react/src/ReactBaseClasses.js">React Base Classes in GitHub</a>
+						<h1>React createElement</h1>
 					</section>
 					<section>
-						<h3>React.Component</h3>
+						<h2>JavaScript</h2>
 						<pre><code class="javascript" data-trim data-noescape contenteditable>
-function Component(props, context, updater) {
-	this.props = props;
-	this.context = context;
-
-	// If a component has string refs,
-	// we will assign a different object later.
-	this.refs = emptyObject;
-
-	// We initialize the default updater but
-	// the real one gets injected by therenderer.
-	this.updater = updater || ReactNoopUpdateQueue;
-}
+							const rootElement = document.getElementById('root');
+							const element = document.createElement('div');
+							element.textContent = "Always together, never div-ided";
+							element.className = "protest-div";
+							rootElement.appendChild(element);
 						</code></pre>
 					</section>
 					<section>
-						<h3>React.PureComponent</h3>
+						<h2>React</h2>
 						<pre><code class="javascript" data-trim data-noescape contenteditable>
-function PureComponent(props, context, updater) {
-  this.props = props;
-  this.context = context;
-
-  // If a component has string refs,
-  // we will assign a different object later.
-  this.refs = emptyObject;
-  this.updater = updater || ReactNoopUpdateQueue;
-}
+							const element = React.createElement(
+								'div',
+								{
+									className: 'protest-div'
+									children: [
+										"Always together, never div-ided",
+										"Uh huh!"
+									]
+								},
+								// Optionally add children as a number of arguments here.
+							)
+							ReactDOM.render(element, rootElement)
 						</code></pre>
 					</section>
 				</section>
@@ -112,21 +133,23 @@ function PureComponent(props, context, updater) {
 						<h1>JSX</h1>
 					</section>
 					<section>
+						<a href="https://github.com/facebook/react/blob/659a29cecf74301532354261369e9048aac6e20f/packages/react/src/React.js#L21-L26">React Top Level Import of ReactElement</a>
 						<a href="https://github.com/facebook/react/blob/master/packages/react/src/ReactElement.js">React Element on GitHub</a>
 					</section>
 					<section>
 						<pre><code class="javascript" data-trim data-noescape contenteditable>
-export function createElement(type, config, children) {
+							export function createElement(type, config, children) {
 						</code></pre>
-						<pre><code class="javascript" data-trim data-noescape contenteditable>return ReactElement(
-  type,
-  key,
-  ref,
-  self,
-  source,
-  ReactCurrentOwner.current,
-  props,
-);
+						<pre><code class="javascript" data-trim data-noescape contenteditable>
+							return ReactElement(
+								type,
+								key,
+								ref,
+								self,
+								source,
+								ReactCurrentOwner.current,
+								props,
+							);
 						</code></pre>
 					</section>
 					<section>
@@ -135,19 +158,69 @@ export function createElement(type, config, children) {
 					</section>
 					<section>
 						<pre><code class="javascript" data-trim data-noescape contenteditable>
-const ReactElement = function(
-	type,
-	key,
-	ref,
-	self,
-	source,
-	owner,
-	props
-) {
+							const ReactElement = function(
+								type,
+								key,
+								ref,
+								self,
+								source,
+								owner,
+								props
+							) {
 						</code></pre>
 					</section>
 					<section>
 						<p>OH IT'S JUST A PROTOTYPE.</p>
+					</section>
+				</section>
+				<section>
+					<section>
+						<h1>React COMPONENT</h1>
+						<a href="https://github.com/facebook/react/blob/659a29cecf74301532354261369e9048aac6e20f/packages/react/src/React.js#L18">React Import from ReactBaseClasses</a>
+						<a href="https://github.com/facebook/react/blob/659a29cecf74301532354261369e9048aac6e20f/packages/react/src/ReactBaseClasses.js">React Base Classes in GitHub</a>
+					</section>
+					<section>
+						<h3>React.Component</h3>
+						<pre><code class="javascript" data-trim data-noescape contenteditable>
+							function Component(props, context, updater) {
+								this.props = props;
+								this.context = context;
+
+								// If a component has string refs,
+								// we will assign a different object later.
+								this.refs = emptyObject;
+
+								// We initialize the default updater but
+								// the real one gets injected by therenderer.
+								this.updater = updater || ReactNoopUpdateQueue;
+							}
+						</code></pre>
+					</section>
+					<section>
+						<h3>React.PureComponent</h3>
+						<pre><code class="javascript" data-trim data-noescape contenteditable>
+							function PureComponent(props, context, updater) {
+								this.props = props;
+								this.context = context;
+
+								// If a component has string refs,
+								// we will assign a different object later.
+								this.refs = emptyObject;
+								this.updater = updater || ReactNoopUpdateQueue;
+							}
+						</code></pre>
+					</section>
+				</section>
+				<section>
+					<section>
+						<h1>React DOM</h1>
+					</section>
+				</section>
+				<section>
+					<section>
+						<h1>Secrets?</h1>
+						<a href="https://github.com/facebook/react/blob/659a29cecf74301532354261369e9048aac6e20f/packages/shared/ReactSharedInternals.js">React Shared Internals?</a>
+						<p>__SECRET_INTERNALS_DO_NOT_USE_OR_YOU_WILL_BE_FIRED</p>
 					</section>
 				</section>
 			</div>
