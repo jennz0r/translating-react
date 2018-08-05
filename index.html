@@ -25,6 +25,9 @@
 		<div class="reveal">
 			<div class="slides">
 				<section>
+					<pre><code class="javascript">function blah() { asldkjf }</code></pre>
+				</section>
+				<section>
 					<h1>Translating React</h1>
 					<img src="/lib/img/react.svg" alt="react logo" class="img-no-format" width="100px" height="100px"/>
 					<p>by <a href="http://mochimachine.com/">Jennifer Wong</a></p>
@@ -70,14 +73,14 @@
 					</section>
 					<section>
 						<h3>React.Component</h3>
-						<pre><code>
+						<pre><code class="javascript" data-trim data-noescape contenteditable>
 function Component(props, context, updater) {
 	this.props = props;
 	this.context = context;
-	// If a component has string refs, 
+	// If a component has string refs,
 	// we will assign a different object later.
 	this.refs = emptyObject;
-	// We initialize the default updater but 
+	// We initialize the default updater but
 	// the real one gets injected by therenderer.
 	this.updater = updater || ReactNoopUpdateQueue;
 }
@@ -85,7 +88,7 @@ function Component(props, context, updater) {
 					</section>
 					<section>
 						<h3>React.PureComponent</h3>
-						<pre><code>
+						<pre><code class="javascript" data-trim data-noescape contenteditable>
 function PureComponent(props, context, updater) {
   this.props = props;
   this.context = context;
@@ -104,11 +107,10 @@ function PureComponent(props, context, updater) {
 						<a href="https://github.com/facebook/react/blob/master/packages/react/src/ReactElement.js">React Element on GitHub</a>
 					</section>
 					<section>
-						<pre><code>
+						<pre><code class="javascript" data-trim data-noescape contenteditable>
 export function createElement(type, config, children) {
 						</code></pre>
-						<pre><code>
-return ReactElement(
+						<pre><code class="javascript" data-trim data-noescape contenteditable>return ReactElement(
   type,
   key,
   ref,
@@ -124,7 +126,7 @@ return ReactElement(
 						<a href="https://github.com/facebook/react/blob/master/packages/react/src/ReactElement.js#L111">React Element code section</a>
 					</section>
 					<section>
-						<pre><code>
+						<pre><code class="javascript" data-trim data-noescape contenteditable>
 const ReactElement = function(type, key, ref, self, source, owner, props) {
 						</code></pre>
 					</section>
