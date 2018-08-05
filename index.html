@@ -10,7 +10,7 @@
 		<link rel="stylesheet" href="css/theme/react.css">
 
 		<!-- Theme used for syntax highlighting of code -->
-		<link rel="stylesheet" href="lib/css/zenburn.css">
+		<link rel="stylesheet" href="lib/css/qtcreator_dark.css">
 
 		<!-- Printing and PDF exports -->
 		<script>
@@ -24,9 +24,6 @@
 	<body>
 		<div class="reveal">
 			<div class="slides">
-				<section>
-					<pre><code class="javascript">function blah() { asldkjf }</code></pre>
-				</section>
 				<section>
 					<h1>Translating React</h1>
 					<img src="/lib/img/react.svg" alt="react logo" class="img-no-format" width="100px" height="100px"/>
@@ -77,9 +74,11 @@
 function Component(props, context, updater) {
 	this.props = props;
 	this.context = context;
+
 	// If a component has string refs,
 	// we will assign a different object later.
 	this.refs = emptyObject;
+
 	// We initialize the default updater but
 	// the real one gets injected by therenderer.
 	this.updater = updater || ReactNoopUpdateQueue;
@@ -92,6 +91,7 @@ function Component(props, context, updater) {
 function PureComponent(props, context, updater) {
   this.props = props;
   this.context = context;
+
   // If a component has string refs, we will assign a different object later.
   this.refs = emptyObject;
   this.updater = updater || ReactNoopUpdateQueue;
