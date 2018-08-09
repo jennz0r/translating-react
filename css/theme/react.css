@@ -292,3 +292,6 @@ body {
 
 .reveal section a {
   border-bottom: 1px dotted #fff; }
+
+.reveal .shadow {
+  text-shadow: 3px 4px 15px black; }

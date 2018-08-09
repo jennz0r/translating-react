@@ -50,6 +50,9 @@
 					</section>
 				</section>
 				<section>
+					<section data-background="/lib/img/components.gif">
+						<h1 class="shadow">COMPONENTS!</h1>
+					</section>
 					<section>
 						<h1>What even is React?</h1>
 						<img src="/lib/img/react.svg" alt="react logo" class="img-no-format" width="100px" height="100px"/>
@@ -98,7 +101,7 @@
 				</section>
 				<section>
 					<section>
-						<h1>React createElement</h1>
+						<h1>React Elements</h1>
 					</section>
 					<section>
 						<h2>JavaScript</h2>
@@ -127,19 +130,61 @@
 							ReactDOM.render(element, rootElement)
 						</code></pre>
 					</section>
+					<section>
+						<h3>Well, if that's the case, why'd they make it?</h3>
+					</section>
+					<section>
+						<h2>React.createElement</h2>
+						<p>Where's it come from?</p>
+						<a href="https://github.com/facebook/react/blob/659a29cecf74301532354261369e9048aac6e20f/packages/react/src/React.js#L21-L26">Link to React.js</a>
+					</section>
+					<section>
+						<h2>React.createElement</h2>
+						<pre><code class="javascript" data-trim data-noescape contenteditable>
+							import {
+							  createElement,
+							  createFactory,
+							  cloneElement,
+							  isValidElement,
+							} from './ReactElement';
+						</code></pre>
+					</section>
+					<section>
+						<h2>ReactElement -> createElement Method</h2>
+						<a href="https://github.com/facebook/react/blob/659a29cecf74301532354261369e9048aac6e20f/packages/react/src/ReactElement.js#L167-L258">GitHub code for .createElement method</a>
+					</section>
+					<section>
+						<h2>React.createElement</h2>
+						<pre><code class="javascript" data-trim data-noescape contenteditable>
+							export function createElement(type, config, children) {
+						</code></pre>
+						<pre><code class="javascript" data-trim data-noescape contenteditable>
+					  return ReactElement(
+					    type,
+					    key,
+					    ref,
+					    self,
+					    source,
+					    ReactCurrentOwner.current,
+					    props,
+					  );
+					 </code></pre>
+					</section>
+					<section>
+						<h3>Wow, that's a lot of stuff!</h3>
+						<p>Why?</p>
+					</section>
 				</section>
 				<section>
 					<section>
 						<h1>JSX</h1>
 					</section>
+					<section data-background="lib/img/ooo.gif"></section>
 					<section>
 						<a href="https://github.com/facebook/react/blob/659a29cecf74301532354261369e9048aac6e20f/packages/react/src/React.js#L21-L26">React Top Level Import of ReactElement</a>
 						<a href="https://github.com/facebook/react/blob/master/packages/react/src/ReactElement.js">React Element on GitHub</a>
 					</section>
 					<section>
-						<pre><code class="javascript" data-trim data-noescape contenteditable>
-							export function createElement(type, config, children) {
-						</code></pre>
 						<pre><code class="javascript" data-trim data-noescape contenteditable>
 							return ReactElement(
 								type,
@@ -172,6 +217,7 @@
 					<section>
 						<p>OH IT'S JUST A PROTOTYPE.</p>
 					</section>
+					<section data-background="lib/img/oooeyes.gif"></section>
 				</section>
 				<section>
 					<section>
