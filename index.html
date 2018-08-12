@@ -27,7 +27,7 @@
 				<section>
 					<h1>Translating React</h1>
 					<img src="/lib/img/react.svg" alt="react logo" class="img-no-format" width="100px" height="100px"/>
-					<p>by <a href="http://mochimachine.com/">Jennifer Wong</a></p>
+					<p>by <a target="_blank" rel="noopener noreferrer" href="http://mochimachine.com/">Jennifer Wong</a></p>
 				</section>
 				<section>
 					<section>
@@ -44,18 +44,24 @@
 					<section>
 						<div>
 							<h1>Envoy</h1>
-							<h3>We're <a href="https://envoy.com/jobs/">hiring</a>!</h3>
+							<h3>We're <a target="_blank" rel="noopener noreferrer" href="https://envoy.com/jobs/">hiring</a>!</h3>
 							<p>Add photos of doggos?</p>
 						</div>
 					</section>
 				</section>
 				<section>
+					<section>
+						<h1>What even is React?</h1>
+						<img src="/lib/img/react.svg" alt="react logo" class="img-no-format" width="100px" height="100px"/>
+					</section>
 					<section data-background="/lib/img/components.gif">
 						<h1 class="shadow">COMPONENTS!</h1>
 					</section>
 					<section>
-						<h1>What even is React?</h1>
-						<img src="/lib/img/react.svg" alt="react logo" class="img-no-format" width="100px" height="100px"/>
+						<img src="/lib/img/nothing-stops-this-train.gif" class="img-no-format" width="1000px"/>
+					</section>
+					<section>
+						<h2><a target="_blank" rel="noopener noreferrer" href="https://reactjs.org/">ReactJS</a></h2>
 					</section>
 					<section>
 						<h3>A JavaScript library for building user interfaces</h3>
@@ -64,20 +70,32 @@
 						<h3>Declarative</h3>
 						<p>React makes it painless to create interactive UIs. Design simple views for each state in your application, and React will efficiently update and render just the right components when your data changes.</p>
 						<p>Declarative views make your code more predictable and easier to debug.</p>
+						<aside>asldkfj</aside>
+					</section>
+					<section data-background="/lib/img/not-bad.gif">
 					</section>
 					<section>
 						<h3>Component-Based</h3>
 						<p>Build encapsulated components that manage their own state, then compose them to make complex UIs.</p>
 						<p>Since component logic is written in JavaScript instead of templates, you can easily pass rich data through your app and keep state out of the DOM.</p>
 					</section>
+					<section data-background="lib/img/components-lego.gif">
+						<p>@chrisgannon</p>
+					</section>
 					<section>
 						<h3>Learn Once, Write Anywhere</h3>
 						<p>We don’t make assumptions about the rest of your technology stack, so you can develop new features in React without rewriting existing code.</p>
 						<p>React can also render on the server using Node and power mobile apps using React Native.</p>
 					</section>
-					<section data-background="/lib/img/typing.gif">
+					<section data-background="/lib/img/shrug.gif">
+						<h2 class="shadow">okay..</h2>
+					</section>
+					<section data-background="/lib/img/without-rewriting.png">
 					</section>
 					<section>
+						<h2>WELL..</h2>
+					</section>
+					<section data-background="/lib/img/typing.gif">
 					</section>
 				</section>
 				<section>
@@ -86,17 +104,69 @@
 						<img src="/lib/img/react.svg" alt="react logo" class="img-no-format" width="100px" height="100px"/>
 					</section>
 					<section>
-						<p>Honestly, sometimes I forget that React actually is just JavaScript.</p>
-					</section>
-				</section>
-				<section>
-					<section>
-						<h1>Top Level API</h1>
-						<a href="https://github.com/facebook/react/blob/659a29cecf74301532354261369e9048aac6e20f/packages/react/src/React.js">API in GitHub</a>
+						<p>Honestly, sometimes I forget that React is actually just JavaScript.</p>
 					</section>
 					<section>
-						<h3>This is literally all React is.</h3>
-						<a href="https://github.com/facebook/react/blob/659a29cecf74301532354261369e9048aac6e20f/packages/react/src/React.js#L36-L65">React defined in Top Level API code</a>
+						<h1>React</h1>
+						<p>GitHub</p>
+						<a target="_blank" rel="noopener noreferrer" href="https://github.com/facebook/react/blob/659a29cecf74301532354261369e9048aac6e20f/packages/react/src/React.js">Top Level API</a>
+					</section>
+					<section>
+						<h3>react/packages/react/src/React.js</h3>
+						<pre><code class="javascript" data-trim data-noescape contenteditable>
+							import ReactVersion from 'shared/ReactVersion';
+							import { ... } from 'shared/ReactSymbols';
+							import { ... } from 'shared/ReactFeatureFlags';
+							import { ... } from './ReactBaseClasses';
+							import { ... } from './ReactCreateRef';
+							import { ... } from './ReactChildren';
+							import { ... } from './ReactElement';
+							import { ... } from './ReactContext';
+							import { ... } from './forwardRef';
+							import { ... } from './ReactElementValidator';
+							import ReactSharedInternals from './ReactSharedInternals';
+						</code></pre>
+					</section>
+					<section>
+						<h3>This is literally all <a target="_blank" rel="noopener noreferrer" href="https://github.com/facebook/react/blob/659a29cecf74301532354261369e9048aac6e20f/packages/react/src/React.js#L36-L65">React</a> is.</h3>
+					</section>
+					<section>
+						<h2>const React</h2>
+						<pre><code class="javascript" data-trim data-noescape contenteditable>
+							const React = {
+							  Children: {
+							    map,
+							    forEach,
+							    count,
+							    toArray,
+							    only,
+							  },
+
+							  createRef,
+							  Component,
+							  PureComponent,
+
+							  createContext,
+							  forwardRef,
+
+							  Fragment: REACT_FRAGMENT_TYPE,
+							  StrictMode: REACT_STRICT_MODE_TYPE,
+							  unstable_AsyncMode: REACT_ASYNC_MODE_TYPE,
+							  unstable_Profiler: REACT_PROFILER_TYPE,
+
+							  createElement: __DEV__ ? createElementWithValidation : createElement,
+							  cloneElement: __DEV__ ? cloneElementWithValidation : cloneElement,
+							  createFactory: __DEV__ ? createFactoryWithValidation : createFactory,
+							  isValidElement: isValidElement,
+
+							  version: ReactVersion,
+
+							  __SECRET_INTERNALS_DO_NOT_USE_OR_YOU_WILL_BE_FIRED: ReactSharedInternals,
+							};
+						</code></pre>
+					</section>
+					<section>
+						<h2>IT'S JUST AN OBJECT!</h2>
 					</section>
 				</section>
 				<section>
@@ -136,7 +206,7 @@
 					<section>
 						<h2>React.createElement</h2>
 						<p>Where's it come from?</p>
-						<a href="https://github.com/facebook/react/blob/659a29cecf74301532354261369e9048aac6e20f/packages/react/src/React.js#L21-L26">Link to React.js</a>
+						<a target="_blank" rel="noopener noreferrer" href="https://github.com/facebook/react/blob/659a29cecf74301532354261369e9048aac6e20f/packages/react/src/React.js#L21-L26">react/packages/react/src/React.js</a>
 					</section>
 					<section>
 						<h2>React.createElement</h2>
@@ -151,7 +221,7 @@
 					</section>
 					<section>
 						<h2>ReactElement -> createElement Method</h2>
-						<a href="https://github.com/facebook/react/blob/659a29cecf74301532354261369e9048aac6e20f/packages/react/src/ReactElement.js#L167-L258">GitHub code for .createElement method</a>
+						<a target="_blank" rel="noopener noreferrer" href="https://github.com/facebook/react/blob/659a29cecf74301532354261369e9048aac6e20f/packages/react/src/ReactElement.js#L167-L258">GitHub code for .createElement method</a>
 					</section>
 					<section>
 						<h2>React.createElement</h2>
@@ -160,13 +230,13 @@
 						</code></pre>
 						<pre><code class="javascript" data-trim data-noescape contenteditable>
 					  return ReactElement(
-					    type,
-					    key,
-					    ref,
-					    self,
-					    source,
-					    ReactCurrentOwner.current,
-					    props,
+								type,
+								key,
+								ref,
+								self,
+								source,
+								ReactCurrentOwner.current,
+								props,
 					  );
 					 </code></pre>
 					</section>
@@ -181,8 +251,36 @@
 					</section>
 					<section data-background="lib/img/ooo.gif"></section>
 					<section>
-						<a href="https://github.com/facebook/react/blob/659a29cecf74301532354261369e9048aac6e20f/packages/react/src/React.js#L21-L26">React Top Level Import of ReactElement</a>
-						<a href="https://github.com/facebook/react/blob/master/packages/react/src/ReactElement.js">React Element on GitHub</a>
+						<a target="_blank" rel="noopener noreferrer" href="http://jsx.github.io/">JSX</a>
+					</section>
+					<section>
+						<p>JSX stands for JavaScript XML. With React, it's an extension for XML-like code for elements and components. Per the React docs and as you mentioned: JSX is a XML-like syntax extension to ECMAScript without any defined semantics.</p>
+						<p>Each JSX element is just syntactic sugar for calling React.createElement(component, props, ...children). So, anything you can do with JSX can also be done with just plain JavaScript.</p>
+					</section>
+
+					<section>
+						<p>React comes with the default set of syntax-transformers that ship with Babel.</p>
+					</section>
+
+					<section>
+						<h2>Show some transpiled JSX</h2>
+						<a href="https://babeljs.io/repl/#?presets=react&code_lz=GYVwdgxgLglg9mABACwKYBt1wBQEpEDeAUIogE6pQhlIA8AJjAG4B8AEhlogO5xnr0AhLQD0jVgG4iAXyJA">Babel</a>
+					</section>
+
+					<section>
+						<h2>Protected Words</h2>
+						<p>Since JSX is closer to JavaScript than to HTML, React DOM uses camelCase property naming convention instead of HTML attribute names.</p>
+						<p>For example, class becomes className in JSX, and tabindex becomes tabIndex.</p>
+					</section>
+
+					<section>
+						<h2>CURLY BRACES</h2>
+						<p>It's JavaScript world! But inside JSX land!</p>
+					</section>
+
+					<section>
+						<a target="_blank" rel="noopener noreferrer" href="https://github.com/facebook/react/blob/659a29cecf74301532354261369e9048aac6e20f/packages/react/src/React.js#L21-L26">React Top Level Import of ReactElement</a>
+						<a target="_blank" rel="noopener noreferrer" href="https://github.com/facebook/react/blob/master/packages/react/src/ReactElement.js">React Element on GitHub</a>
 					</section>
 					<section>
 						<pre><code class="javascript" data-trim data-noescape contenteditable>
@@ -199,7 +297,7 @@
 					</section>
 					<section>
 						<h2>What's a React Element?</h2>
-						<a href="https://github.com/facebook/react/blob/master/packages/react/src/ReactElement.js#L111">React Element code section</a>
+						<a target="_blank" rel="noopener noreferrer" href="https://github.com/facebook/react/blob/master/packages/react/src/ReactElement.js#L111">React Element code section</a>
 					</section>
 					<section>
 						<pre><code class="javascript" data-trim data-noescape contenteditable>
@@ -222,8 +320,8 @@
 				<section>
 					<section>
 						<h1>React COMPONENT</h1>
-						<a href="https://github.com/facebook/react/blob/659a29cecf74301532354261369e9048aac6e20f/packages/react/src/React.js#L18">React Import from ReactBaseClasses</a>
-						<a href="https://github.com/facebook/react/blob/659a29cecf74301532354261369e9048aac6e20f/packages/react/src/ReactBaseClasses.js">React Base Classes in GitHub</a>
+						<a target="_blank" rel="noopener noreferrer" href="https://github.com/facebook/react/blob/659a29cecf74301532354261369e9048aac6e20f/packages/react/src/React.js#L18">React Import from ReactBaseClasses</a>
+						<a target="_blank" rel="noopener noreferrer" href="https://github.com/facebook/react/blob/659a29cecf74301532354261369e9048aac6e20f/packages/react/src/ReactBaseClasses.js">React Base Classes in GitHub</a>
 					</section>
 					<section>
 						<h3>React.Component</h3>
@@ -256,17 +354,43 @@
 							}
 						</code></pre>
 					</section>
+					<section data-background="lib/img/props.gif">
+						<p>https://kinardist-media.com/ @the_kinardist</p>
+					</section>
+					<section data-background="lib/img/props-tupac.gif">
+						<p>Gimme my props!</p>
+					</section>
 				</section>
 				<section>
 					<section>
 						<h1>React DOM</h1>
 					</section>
+					<section>
+						<h2>Now that we have something, let's render it to the DOM</h2>
+					</section>
 				</section>
 				<section>
 					<section>
 						<h1>Secrets?</h1>
-						<a href="https://github.com/facebook/react/blob/659a29cecf74301532354261369e9048aac6e20f/packages/shared/ReactSharedInternals.js">React Shared Internals?</a>
 						<p>__SECRET_INTERNALS_DO_NOT_USE_OR_YOU_WILL_BE_FIRED</p>
+						<a target="_blank" rel="noopener noreferrer" href="https://github.com/facebook/react/blob/659a29cecf74301532354261369e9048aac6e20f/packages/shared/ReactSharedInternals.js">React Shared Internals?</a>
+					</section>
+					<section>
+
+						<a target="_blank" rel="noopener noreferrer" href="https://github.com/facebook/react/blob/master/packages/react/src/ReactSharedInternals.js">ReactSharedInternals</a><br>
+						<a target="_blank" rel="noopener noreferrer" href="https://github.com/facebook/react/blob/master/packages/react/src/ReactCurrentOwner.js">ReactCurrentOwner</a><br>
+						<a target="_blank" rel="noopener noreferrer" href=""></a><br>
+						<a target="_blank" rel="noopener noreferrer" href="https://github.com/facebook/react/tree/master/packages/react-reconciler">react-reconciler</a>
+					</section>
+					<section>
+						<h2>react-reconciler</h2>
+						<p>This is an experimental package for creating custom React renderers.</p>
+						<p>Its API is not as stable as that of React, React Native, or React DOM, and does not follow the common versioning scheme.</p>
+						<p>Use it at your own risk.</p>
+					</section>
+				</section>
+				<section>
+					<section data-background="/lib/img/ready.gif">
 					</section>
 				</section>
 			</div>
