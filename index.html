@@ -31,7 +31,7 @@
 				</section>
 				<section>
 					<section data-background="/lib/img/whoru.gif">
-						<h1>Who R U?</h1>
+						<h1 class="shadow">Who R U?</h1>
 					</section>
 					<section>
 						<img src="/lib/img/horse.jpg" alt="react logo" class="img-no-format" width="400px" height="300px" />
@@ -75,35 +75,32 @@
 					</section>
 					<section>
 						<h3>Declarative</h3>
-						MAKE THIS SHORTER
-						<p>React makes it painless to create interactive UIs. Design simple views for each state in your application, and React will efficiently update and render just the right components when your data changes.</p>
-						<p>Declarative views make your code more predictable and easier to debug.</p>
-						<aside>asldkfj</aside>
+						<p>React will efficiently update and render just the right components when your data changes.</p>
+						<p>Declarative views make your code <span class="fragment highlight-blue">more predictable and easier to debug</span>.</p>
+						<aside class="notes">SOME NOTES GO HERE</aside>
 					</section>
 					<section data-background="/lib/img/not-bad.gif">
 					</section>
 					<section>
 						<h3>Component-Based</h3>
-						MAKE THIS SHORTER
-						<p>Build encapsulated components that manage their own state, then compose them to make complex UIs.</p>
-						<p>Since component logic is written in JavaScript instead of templates, you can easily pass rich data through your app and keep state out of the DOM.</p>
+						<p>Build encapsulated <span class="fragment highlight-blue">components</span> that manage their own state, then compose them to make complex UIs.</p>
 					</section>
 					<section data-background="lib/img/components-lego.gif">
 						<p>@chrisgannon</p>
 					</section>
 					<section>
 						<h3>Learn Once, Write Anywhere</h3>
-						MAKE THIS SHORTER
 						<p>We don’t make assumptions about the rest of your technology stack, so you can develop new features in React without rewriting existing code.</p>
 						<p>React can also render on the server using Node and power mobile apps using React Native.</p>
 					</section>
 					<section data-background="/lib/img/shrug.gif">
-						<h2 class="shadow">okay..</h2>
+						<h2 class="shadow">OKAY..</h2>
 					</section>
 					<section data-background="/lib/img/without-rewriting.png">
 					</section>
 					<section>
-						<h2>WELL..</h2>
+						<h2>BUT..</h2>
+						<p class="fragment current-visible">I'm rewriting existing code RIGHT NOW.</p>
 					</section>
 					<section data-background="/lib/img/typing.gif">
 					</section>
@@ -116,10 +113,89 @@
 					<section>
 						<p>Honestly, sometimes I forget that React is actually just JavaScript.</p>
 					</section>
+					<section data-background="/lib/img/components.gif">
+						<h1 class="shadow">COMPONENTS!</h1>
+					</section>
+					<section data-background="/lib/img/jsx.gif">
+						<h1 class="shadow">JSX!</h1>
+						<p>@ryanseslow</p>
+					</section>
 					<section>
 						<h1>React</h1>
-						<p>GitHub</p>
-						<a target="_blank" rel="noopener noreferrer" href="https://github.com/facebook/react/blob/659a29cecf74301532354261369e9048aac6e20f/packages/react/src/React.js">Top Level API</a>
+						<p class="fragment current-visible"><a target="_blank" rel="noopener noreferrer" href="https://github.com/facebook/react/blob/659a29cecf74301532354261369e9048aac6e20f/packages/react/src/React.js">GitHub</a></p>
+					</section>
+					<section>
+						<pre><code class="javascript" data-trim data-noescape contenteditable>
+							import ReactVersion from 'shared/ReactVersion';
+							import {
+								REACT_ASYNC_MODE_TYPE,
+								REACT_FRAGMENT_TYPE,
+								REACT_PROFILER_TYPE,
+								REACT_STRICT_MODE_TYPE,
+								REACT_PLACEHOLDER_TYPE,
+							} from 'shared/ReactSymbols';
+							import {enableSuspense} from 'shared/ReactFeatureFlags';
+
+							import {Component, PureComponent} from './ReactBaseClasses';
+							import {createRef} from './ReactCreateRef';
+							import {forEach, map, count, toArray, only} from './ReactChildren';
+							import {
+								createElement,
+								createFactory,
+								cloneElement,
+								isValidElement,
+							} from './ReactElement';
+							import {createContext} from './ReactContext';
+							import forwardRef from './forwardRef';
+							import {
+								createElementWithValidation,
+								createFactoryWithValidation,
+								cloneElementWithValidation,
+							} from './ReactElementValidator';
+							import ReactSharedInternals from './ReactSharedInternals';
+
+							const React = {
+								Children: {
+									map,
+									forEach,
+									count,
+									toArray,
+									only,
+								},
+
+								createRef,
+								Component,
+								PureComponent,
+
+								createContext,
+								forwardRef,
+
+								Fragment: REACT_FRAGMENT_TYPE,
+								StrictMode: REACT_STRICT_MODE_TYPE,
+								unstable_AsyncMode: REACT_ASYNC_MODE_TYPE,
+								unstable_Profiler: REACT_PROFILER_TYPE,
+
+								createElement: __DEV__ ? createElementWithValidation : createElement,
+								cloneElement: __DEV__ ? cloneElementWithValidation : cloneElement,
+								createFactory: __DEV__ ? createFactoryWithValidation : createFactory,
+								isValidElement: isValidElement,
+
+								version: ReactVersion,
+
+								__SECRET_INTERNALS_DO_NOT_USE_OR_YOU_WILL_BE_FIRED: ReactSharedInternals,
+							};
+
+							if (enableSuspense) {
+								React.Placeholder = REACT_PLACEHOLDER_TYPE;
+							}
+
+							export default React;
+						</code></pre>
+					</section>
+					<section>
+						<h3>This is literally all <a target="_blank" rel="noopener noreferrer" href="https://github.com/facebook/react/blob/659a29cecf74301532354261369e9048aac6e20f/packages/react/src/React.js#L36-L65">React</a> is.</h3>
+					</section>
+					<section data-background="/lib/img/not-so-scary2.gif">
 					</section>
 					<section>
 						<h3>react/packages/react/src/React.js</h3>
@@ -138,10 +214,7 @@
 						</code></pre>
 					</section>
 					<section>
-						<h3>This is literally all <a target="_blank" rel="noopener noreferrer" href="https://github.com/facebook/react/blob/659a29cecf74301532354261369e9048aac6e20f/packages/react/src/React.js#L36-L65">React</a> is.</h3>
-					</section>
-					<section>
-						<h2>const React</h2>
+						<h3>react/packages/react/src/React.js</h3>
 						<pre><code class="javascript" data-trim data-noescape contenteditable>
 							const React = {
 							  Children: {
@@ -178,6 +251,11 @@
 					<section>
 						<h2>IT'S JUST AN OBJECT!</h2>
 					</section>
+					<section>
+						<h3>react/packages/react/src/React.js</h3>
+						<p>to</p>
+						<h3>react/packages/react/src/ReactElement.js</h3>
+					</section>
 				</section>
 				<section>
 					<section>
@@ -199,15 +277,39 @@
 							const element = React.createElement(
 								'div',
 								{
-									className: 'protest-div'
+									className: 'protest-div',
 									children: [
 										"Always together, never div-ided",
 										"Uh huh!"
 									]
 								},
 								// Optionally add children as a number of arguments here.
-							)
-							ReactDOM.render(element, rootElement)
+							);
+							ReactDOM.render(element, rootElement);
+						</code></pre>
+					</section>
+					<section>
+						<pre><code class="javascript" data-trim data-noescape contenteditable>
+							const rootElement = document.getElementById('root');
+							const element = document.createElement('div');
+							element.textContent = "Always together, never div-ided";
+							element.className = "protest-div";
+							rootElement.appendChild(element);
+						</code></pre>
+						<br>
+						<pre><code class="javascript" data-trim data-noescape contenteditable>
+							const element = React.createElement(
+								'div',
+								{
+									className: 'protest-div',
+									children: [
+										"Always together, never div-ided",
+										"Uh huh!"
+									]
+								},
+								// Optionally add children as a number of arguments here.
+							);
+							ReactDOM.render(element, rootElement);
 						</code></pre>
 					</section>
 					<section>
@@ -253,6 +355,13 @@
 					<section>
 						<h3>Wow, that's a lot of stuff!</h3>
 						<p>Why?</p>
+					</section>
+					<section>
+					</section>
+					<section>
+					</section>
+					<section>
+						<h3>Finally! We made it to JSX!</h3>
 					</section>
 				</section>
 				<section>
