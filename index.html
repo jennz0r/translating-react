@@ -22,12 +22,12 @@
 		</script>
 	</head>
 	<body>
-				<div class="reveal">
+		<div class="reveal">
 			<div class="slides">
 				<section>
 					<h1>Translating React</h1>
 					<img src="/lib/img/react.svg" alt="react logo" class="img-no-format" width="100px" height="100px"/>
-					<p>by <a target="_blank" rel="noopener noreferrer" href="http://mochimachine.com/">Jennifer Wong</a></p>
+					<p>by <a target="_blank" rel="noopener noreferrer" href="http://mochimachine.com/">Jennifer Wong</a> | <a target="_blank" rel="noopener noreferrer" href="https://twitter.com/mybluewristband">@mybluewristband</a></p>
 				</section>
 				<section>
 					<section data-background="/lib/img/whoru.gif">
@@ -44,19 +44,25 @@
 						<div>
 							<h1>Envoy</h1>
 							<h3>We're <a target="_blank" rel="noopener noreferrer" href="https://envoy.com/jobs/">hiring</a>!</h3>
-							<p>Add photos of doggos?</p>
 						</div>
 					</section>
+					<section data-background="/lib/img/dogs.png"></section>
 				</section>
+
 				<section>
 					<section>
 						<h1>A Little Story</h1>
 						<p>About switching frameworks</p>
 					</section>
+					<section data-background="/lib/img/excited.gif">
+						<h2 class="shadow">OMG REACT!</h2>
+					</section>
 					<section data-background="/lib/img/what-is-that2.gif">
 					</section>
 					<section data-background="/lib/img/components.gif">
 						<h1 class="shadow">COMPONENTS!</h1>
+					</section>
+					<section data-background="/lib/img/what-is-that.gif">
 					</section>
 					<section>
 						<img src="/lib/img/nothing-stops-this-train.gif" class="img-no-format" width="1000px"/>
@@ -69,6 +75,9 @@
 					</section>
 					<section>
 						<h2><a target="_blank" rel="noopener noreferrer" href="https://reactjs.org/">ReactJS</a></h2>
+					</section>
+					<section>
+						<p>Add a screenshot of React's website; Maybe mention that they do actually have helpful documentation but that can be overwhelming to n00bs.</p>
 					</section>
 					<section>
 						<h3>A JavaScript library for building user interfaces</h3>
@@ -86,7 +95,7 @@
 						<p>Build encapsulated <span class="fragment highlight-blue">components</span> that manage their own state, then compose them to make complex UIs.</p>
 					</section>
 					<section data-background="lib/img/components-lego.gif">
-						<p>@chrisgannon</p>
+						<aside class="notes">gif by @chrisgannon</aside>
 					</section>
 					<section>
 						<h3>Learn Once, Write Anywhere</h3>
@@ -102,9 +111,12 @@
 						<h2>BUT..</h2>
 						<p class="fragment current-visible">I'm rewriting existing code RIGHT NOW.</p>
 					</section>
+					<section data-background="/lib/img/ok.gif">
+					</section>
 					<section data-background="/lib/img/typing.gif">
 					</section>
 				</section>
+
 				<section>
 					<section>
 						<h1>What's confusing?</h1>
@@ -118,11 +130,19 @@
 					</section>
 					<section data-background="/lib/img/jsx.gif">
 						<h1 class="shadow">JSX!</h1>
-						<p>@ryanseslow</p>
+						<aside class="notes">gif by @ryanseslow</aside>
+					</section>
+					<section>
+						<h1 class="shadow">VIRTUAL DOM</h1>
+						<a href="https://reactjs.org/docs/faq-internals.html">virtual dom on react docs</a>
 					</section>
 					<section>
 						<h1>React</h1>
 						<p class="fragment current-visible"><a target="_blank" rel="noopener noreferrer" href="https://github.com/facebook/react/blob/659a29cecf74301532354261369e9048aac6e20f/packages/react/src/React.js">GitHub</a></p>
+					</section>
+					<section>
+						<p>ADD SOME SCREENSHOTS OF REACT CODE BASE YAY</p>
+						<p>Say some thing about React being open source and available etc.</p>
 					</section>
 					<section>
 						<pre><code class="javascript" data-trim data-noescape contenteditable>
@@ -217,34 +237,34 @@
 						<h3>react/packages/react/src/React.js</h3>
 						<pre><code class="javascript" data-trim data-noescape contenteditable>
 							const React = {
-							  Children: {
-							    map,
-							    forEach,
-							    count,
-							    toArray,
-							    only,
-							  },
+								Children: {
+									map,
+									forEach,
+									count,
+									toArray,
+									only,
+								},
 
-							  createRef,
-							  Component,
-							  PureComponent,
+								createRef,
+								Component,
+								PureComponent,
 
-							  createContext,
-							  forwardRef,
+								createContext,
+								forwardRef,
 
-							  Fragment: REACT_FRAGMENT_TYPE,
-							  StrictMode: REACT_STRICT_MODE_TYPE,
-							  unstable_AsyncMode: REACT_ASYNC_MODE_TYPE,
-							  unstable_Profiler: REACT_PROFILER_TYPE,
+								Fragment: REACT_FRAGMENT_TYPE,
+								StrictMode: REACT_STRICT_MODE_TYPE,
+								unstable_AsyncMode: REACT_ASYNC_MODE_TYPE,
+								unstable_Profiler: REACT_PROFILER_TYPE,
 
-							  createElement: __DEV__ ? createElementWithValidation : createElement,
-							  cloneElement: __DEV__ ? cloneElementWithValidation : cloneElement,
-							  createFactory: __DEV__ ? createFactoryWithValidation : createFactory,
-							  isValidElement: isValidElement,
+								createElement: __DEV__ ? createElementWithValidation : createElement,
+								cloneElement: __DEV__ ? cloneElementWithValidation : cloneElement,
+								createFactory: __DEV__ ? createFactoryWithValidation : createFactory,
+								isValidElement: isValidElement,
 
-							  version: ReactVersion,
+								version: ReactVersion,
 
-							  __SECRET_INTERNALS_DO_NOT_USE_OR_YOU_WILL_BE_FIRED: ReactSharedInternals,
+								__SECRET_INTERNALS_DO_NOT_USE_OR_YOU_WILL_BE_FIRED: ReactSharedInternals,
 							};
 						</code></pre>
 					</section>
@@ -252,11 +272,10 @@
 						<h2>IT'S JUST AN OBJECT!</h2>
 					</section>
 					<section>
-						<h3>react/packages/react/src/React.js</h3>
-						<p>to</p>
-						<h3>react/packages/react/src/ReactElement.js</h3>
+						<p>Now that we know what React is, let's look at the basis of React</p>
 					</section>
 				</section>
+
 				<section>
 					<section>
 						<h1>React Elements</h1>
@@ -273,6 +292,7 @@
 					</section>
 					<section>
 						<h2>React</h2>
+						<p>ADD ROOT ELEMENT CREATION TO THIS SLIDE AND NEXT SLIDE!</p>
 						<pre><code class="javascript" data-trim data-noescape contenteditable>
 							const element = React.createElement(
 								'div',
@@ -317,31 +337,124 @@
 					</section>
 					<section>
 						<h2>React.createElement</h2>
-						<p>Where's it come from?</p>
-						<a target="_blank" rel="noopener noreferrer" href="https://github.com/facebook/react/blob/659a29cecf74301532354261369e9048aac6e20f/packages/react/src/React.js#L21-L26">react/packages/react/src/React.js</a>
+						<p class="fragment current-visible">Where's it come from?</p>
 					</section>
 					<section>
-						<h2>React.createElement</h2>
+						<h2><a target="_blank" rel="noopener noreferrer" href="https://github.com/facebook/react/blob/659a29cecf74301532354261369e9048aac6e20f/packages/react/src/React.js#L21-L26">react/src/React.js</a></h2>
 						<pre><code class="javascript" data-trim data-noescape contenteditable>
 							import {
-							  createElement,
-							  createFactory,
-							  cloneElement,
-							  isValidElement,
+								createElement,
+								createFactory,
+								cloneElement,
+								isValidElement,
 							} from './ReactElement';
 						</code></pre>
 					</section>
 					<section>
-						<h2>ReactElement -> createElement Method</h2>
-						<a target="_blank" rel="noopener noreferrer" href="https://github.com/facebook/react/blob/659a29cecf74301532354261369e9048aac6e20f/packages/react/src/ReactElement.js#L167-L258">GitHub code for .createElement method</a>
+						<h3>react/packages/react/src/React.js</h3>
+						<h4>to</h4>
+						<h3>react/packages/react/src/ReactElement.js</h3>
 					</section>
 					<section>
-						<h2>React.createElement</h2>
+						<h2>createElement in ReactElement.js</h2>
+						<pre><code class="javascript" data-trim data-noescape contenteditable>
+							export function createElement(type, config, children) {
+								let propName;
+
+								// Reserved names are extracted
+								const props = {};
+
+								let key = null;
+								let ref = null;
+								let self = null;
+								let source = null;
+
+								if (config != null) {
+									if (hasValidRef(config)) {
+										ref = config.ref;
+									}
+									if (hasValidKey(config)) {
+										key = '' + config.key;
+									}
+
+									self = config.__self === undefined ? null : config.__self;
+									source = config.__source === undefined ? null : config.__source;
+									// Remaining properties are added to a new props object
+									for (propName in config) {
+										if (
+											hasOwnProperty.call(config, propName) &&
+											!RESERVED_PROPS.hasOwnProperty(propName)
+										) {
+											props[propName] = config[propName];
+										}
+									}
+								}
+
+								// Children can be more than one argument, and those are transferred onto
+								// the newly allocated props object.
+								const childrenLength = arguments.length - 2;
+								if (childrenLength === 1) {
+									props.children = children;
+								} else if (childrenLength > 1) {
+									const childArray = Array(childrenLength);
+									for (let i = 0; i < childrenLength; i++) {
+										childArray[i] = arguments[i + 2];
+									}
+									if (__DEV__) {
+										if (Object.freeze) {
+											Object.freeze(childArray);
+										}
+									}
+									props.children = childArray;
+								}
+
+								// Resolve default props
+								if (type && type.defaultProps) {
+									const defaultProps = type.defaultProps;
+									for (propName in defaultProps) {
+										if (props[propName] === undefined) {
+											props[propName] = defaultProps[propName];
+										}
+									}
+								}
+								if (__DEV__) {
+									if (key || ref) {
+										if (
+											typeof props.$$typeof === 'undefined' ||
+											props.$$typeof !== REACT_ELEMENT_TYPE
+										) {
+											const displayName =
+												typeof type === 'function'
+													? type.displayName || type.name || 'Unknown'
+													: type;
+											if (key) {
+												defineKeyPropWarningGetter(props, displayName);
+											}
+											if (ref) {
+												defineRefPropWarningGetter(props, displayName);
+											}
+										}
+									}
+								}
+								return ReactElement(
+									type,
+									key,
+									ref,
+									self,
+									source,
+									ReactCurrentOwner.current,
+									props,
+								);
+							}
+						</code></pre>
+					</section>
+					<section>
+						<h2>createElement</h2>
 						<pre><code class="javascript" data-trim data-noescape contenteditable>
 							export function createElement(type, config, children) {
 						</code></pre>
 						<pre><code class="javascript" data-trim data-noescape contenteditable>
-					  return ReactElement(
+							return ReactElement (
 								type,
 								key,
 								ref,
@@ -349,9 +462,35 @@
 								source,
 								ReactCurrentOwner.current,
 								props,
-					  );
-					 </code></pre>
+							);
+						</code></pre>
 					</section>
+
+					<section>
+						<h2>So.. what's a ReactElement?</h2>
+					</section>
+					<section>
+						<pre><code class="javascript" data-trim data-noescape contenteditable>
+							const ReactElement = function(
+								type,
+								key,
+								ref,
+								self,
+								source,
+								owner,
+								props
+							) {
+						</code></pre>
+					</section>
+					<section>
+						<p>OH IT'S JUST A PROTOTYPE.</p>
+					</section>
+
+
+
+
+
+
 					<section>
 						<h3>Wow, that's a lot of stuff!</h3>
 						<p>Why?</p>
@@ -370,72 +509,34 @@
 					</section>
 					<section data-background="lib/img/ooo.gif"></section>
 					<section>
+						<p>Maybe make a joke about PHP</p>
+						<p>Using all the power of a code language in a template (?)</p>
+					</section>
+					<section>
 						<a target="_blank" rel="noopener noreferrer" href="http://jsx.github.io/">JSX</a>
 					</section>
 					<section>
 						<p>JSX stands for JavaScript XML. With React, it's an extension for XML-like code for elements and components. Per the React docs and as you mentioned: JSX is a XML-like syntax extension to ECMAScript without any defined semantics.</p>
 						<p>Each JSX element is just syntactic sugar for calling React.createElement(component, props, ...children). So, anything you can do with JSX can also be done with just plain JavaScript.</p>
 					</section>
-
 					<section>
 						<p>React comes with the default set of syntax-transformers that ship with Babel.</p>
 					</section>
-
 					<section>
 						<h2>Show some transpiled JSX</h2>
 						<a href="https://babeljs.io/repl/#?presets=react&code_lz=GYVwdgxgLglg9mABACwKYBt1wBQEpEDeAUIogE6pQhlIA8AJjAG4B8AEhlogO5xnr0AhLQD0jVgG4iAXyJA">Babel</a>
 					</section>
-
 					<section>
 						<h2>Protected Words</h2>
 						<p>Since JSX is closer to JavaScript than to HTML, React DOM uses camelCase property naming convention instead of HTML attribute names.</p>
 						<p>For example, class becomes className in JSX, and tabindex becomes tabIndex.</p>
 					</section>
-
 					<section>
 						<h2>CURLY BRACES</h2>
 						<p>It's JavaScript world! But inside JSX land!</p>
 					</section>
-
-					<section>
-						<a target="_blank" rel="noopener noreferrer" href="https://github.com/facebook/react/blob/659a29cecf74301532354261369e9048aac6e20f/packages/react/src/React.js#L21-L26">React Top Level Import of ReactElement</a>
-						<a target="_blank" rel="noopener noreferrer" href="https://github.com/facebook/react/blob/master/packages/react/src/ReactElement.js">React Element on GitHub</a>
-					</section>
-					<section>
-						<pre><code class="javascript" data-trim data-noescape contenteditable>
-							return ReactElement(
-								type,
-								key,
-								ref,
-								self,
-								source,
-								ReactCurrentOwner.current,
-								props,
-							);
-						</code></pre>
-					</section>
-					<section>
-						<h2>What's a React Element?</h2>
-						<a target="_blank" rel="noopener noreferrer" href="https://github.com/facebook/react/blob/master/packages/react/src/ReactElement.js#L111">React Element code section</a>
-					</section>
-					<section>
-						<pre><code class="javascript" data-trim data-noescape contenteditable>
-							const ReactElement = function(
-								type,
-								key,
-								ref,
-								self,
-								source,
-								owner,
-								props
-							) {
-						</code></pre>
-					</section>
-					<section>
-						<p>OH IT'S JUST A PROTOTYPE.</p>
-					</section>
-					<section data-background="lib/img/oooeyes.gif"></section>
 				</section>
+
 				<section>
 					<section>
 						<h1>React COMPONENT</h1>
@@ -473,13 +574,17 @@
 							}
 						</code></pre>
 					</section>
+					<section>
+						<p>ADD INFO </p>
+					</section>
 					<section data-background="lib/img/props.gif">
-						<p>https://kinardist-media.com/ @the_kinardist</p>
+						<aside class="notes">https://kinardist-media.com/ @the_kinardist</aside>
 					</section>
 					<section data-background="lib/img/props-tupac.gif">
 						<p>Gimme my props!</p>
 					</section>
 				</section>
+
 				<section>
 					<section>
 						<h1>React DOM</h1>
@@ -488,6 +593,7 @@
 						<h2>Now that we have something, let's render it to the DOM</h2>
 					</section>
 				</section>
+
 				<section>
 					<section>
 						<h1>Secrets?</h1>
@@ -511,10 +617,12 @@
 						<p>Use it at your own risk.</p>
 					</section>
 				</section>
+
 				<section>
 					<section data-background="/lib/img/ready.gif">
 					</section>
 				</section>
+
 			</div>
 		</div>
 
