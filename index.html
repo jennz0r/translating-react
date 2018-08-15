@@ -493,6 +493,7 @@
 							 * @internal
 							 */
 						</code></pre>
+						<aside class="notes">Don't use new to call the ReactElement factory method. Just call the factory method!</aside>
 					</section>
 					<section>
 						<h2>ReactElement in ReactElement.js</h2>
@@ -572,26 +573,57 @@
 						</code></pre>
 					</section>
 					<section>
-						<p>OH IT'S JUST ANOTHER OBJECT.</p>
-					</section>
-
-
-
-
-
-
-					<section>
-						<h3>Wow, that's a lot of stuff!</h3>
-						<p>Why?</p>
+						<p>OH IT'S JUST ANOTHER OBJECT!</p>
 					</section>
 					<section>
+						<p>But what are all those properties?</p>
 					</section>
 					<section>
+						<p>So this is where some of the React magic comes from!</p>
+						<p>There's a type, key, ref, and props.</p>
+						<ul>
+							<li>type:</li>
+							<li>key:</li>
+							<li>ref:</li>
+							<li>props:</li>
+					</section>
+					<section data-background="lib/img/full-circle.gif">
+						<p class="shadow">And now we've come full circle!</p>
+					</section>
+					<section>
+						<pre><code class="javascript" data-trim data-noescape contenteditable>
+							const element = {
+								// This tag allows us to uniquely identify this as a React Element
+								$$typeof: REACT_ELEMENT_TYPE,
+
+								// Built-in properties that belong on the element
+								type: type,
+								key: key,
+								ref: ref,
+								props: props,
+
+								// Record the component responsible for creating this element.
+								_owner: owner,
+							};
+						</code></pre>
+						<pre><code class="javascript" data-trim data-noescape contenteditable>
+							const element = React.createElement(
+								'div',
+								{
+									className: 'protest-div',
+									children: [
+										"Always together, never div-ided",
+										"Uh huh!"
+									]
+								},
+							);
+						</code></pre>
 					</section>
 					<section>
 						<h3>Finally! We made it to JSX!</h3>
 					</section>
 				</section>
+
 				<section>
 					<section>
 						<h1>JSX</h1>
@@ -601,19 +633,35 @@
 						<p>Maybe make a joke about PHP</p>
 						<p>Using all the power of a code language in a template (?)</p>
 					</section>
-					<section>
-						<a target="_blank" rel="noopener noreferrer" href="http://jsx.github.io/">JSX</a>
+					<section data-background="lib/img/jsx.png">
+						<aside class="notes">http://jsx.github.io/</aside>
+					</section>
+					<section data-background="lib/img/jedi.gif">
+						<aside class="notes">This isn't the JSX you're looking for.</aside>
 					</section>
 					<section>
-						<p>JSX stands for JavaScript XML. With React, it's an extension for XML-like code for elements and components. Per the React docs and as you mentioned: JSX is a XML-like syntax extension to ECMAScript without any defined semantics.</p>
-						<p>Each JSX element is just syntactic sugar for calling React.createElement(component, props, ...children). So, anything you can do with JSX can also be done with just plain JavaScript.</p>
+						<h2>JavaScript XML</h2>
+						<p>With React, it's an extension for XML-like code for elements and components.</p>
+						<p>JSX is a XML-like syntax extension to ECMAScript without any defined semantics.</p>
+						<p>JSX is just syntactic sugar for calling React.createElement(component, props, ...children).
+						<p>So, anything you can do with JSX can also be done with just plain JavaScript.</p>
+					</section>
+					<section>
+						<h2>Some gif about sugar</h2>
 					</section>
 					<section>
 						<p>React comes with the default set of syntax-transformers that ship with Babel.</p>
 					</section>
 					<section>
-						<h2>Show some transpiled JSX</h2>
-						<a href="https://babeljs.io/repl/#?presets=react&code_lz=GYVwdgxgLglg9mABACwKYBt1wBQEpEDeAUIogE6pQhlIA8AJjAG4B8AEhlogO5xnr0AhLQD0jVgG4iAXyJA">Babel</a>
+						<h2>Don't forget the React!</h2>
+						<p>Since JSX compiles into calls to React.createElement, the React library must also always be in scope from your JSX code.</p>
+					</section>
+					<section>
+						<h2>don't you forget about me gif here</h2>
+					</section>
+					<section>
+						<h2>Transpiled JSX</h2>
+						<p><a href="https://babeljs.io/repl/#?babili=false&browsers=&build=&builtIns=false&spec=false&loose=false&code_lz=GYVwdgxgLglg9mABABwE5ygUwM5QBQCUiA3gFCKKqZQipIA8AJjAG6IQA2AhttgHJcAtpgC8AIjQYcUALTMWYgHwBBDgHcuAT2yIocAObUAFplQAaRGEwtTieTJiNMjAHT0A9PMUBuUgF8gA&debug=false&forceAllTransforms=false&shippedProposals=false&circleciRepo=&evaluate=false&fileSize=false&sourceType=module&lineWrap=true&presets=react&prettier=false&targets=&version=6.26.0&envVersion=">Babel Transpilation</a> of our original ReactElement</p>
 					</section>
 					<section>
 						<h2>Protected Words</h2>
@@ -670,7 +718,10 @@
 						<aside class="notes">https://kinardist-media.com/ @the_kinardist</aside>
 					</section>
 					<section data-background="lib/img/props-tupac.gif">
-						<p>Gimme my props!</p>
+						<p class="shadow">Gimme my props!</p>
+					</section>
+					<section>
+						<p>Going back to JSX AND Protected Words temporarily - React Components need to be capitalized - otherwise it'll look like an HTML tag instead! :(</p>
 					</section>
 				</section>
 
@@ -680,6 +731,41 @@
 					</section>
 					<section>
 						<h2>Now that we have something, let's render it to the DOM</h2>
+					</section>
+					<section data-background="lib/img/react-dom.png">
+						<aside class="notes">Ok we're now out of the react package and into the react-dom package.</aside>
+					</section>
+					<section>
+						<h3>react/packages/react-dom/</h3>
+					</section>
+					<section>
+						react-dom
+							findDOMNode
+							render
+							unmountComponentAtNode
+						react-dom/server
+							renderToString
+							renderToStaticMarkup
+					</section>
+					<section>
+						<h3>react/packages/react-dom/src/client/ReactDOM.js</h3>
+					</section>
+					<section>
+						<pre><code class="javascript" data-trim data-noescape contenteditable>
+							render(
+								element: React$Element<any>,
+								container: DOMContainer,
+								callback: ?Function,
+							) {
+								return legacyRenderSubtreeIntoContainer(
+									null,
+									element,
+									container,
+									false,
+									callback,
+								);
+							},
+						</code></pre>
 					</section>
 				</section>
 
@@ -708,10 +794,14 @@
 				</section>
 
 				<section>
+					<section>
+
+					</section>
 					<section data-background="/lib/img/ready.gif">
 					</section>
+					<section data-background="lib/img/no-to-react.png">
+					</section>
 				</section>
-
 			</div>
 		</div>
 
