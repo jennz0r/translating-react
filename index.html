@@ -145,6 +145,9 @@
 						<p>Say some thing about React being open source and available etc.</p>
 					</section>
 					<section>
+						<p>So let's take a look at React > React.js add file path for the file below</p>
+					</section>
+					<section>
 						<pre><code class="javascript" data-trim data-noescape contenteditable>
 							import ReactVersion from 'shared/ReactVersion';
 							import {
@@ -216,6 +219,9 @@
 						<h3>This is literally all <a target="_blank" rel="noopener noreferrer" href="https://github.com/facebook/react/blob/659a29cecf74301532354261369e9048aac6e20f/packages/react/src/React.js#L36-L65">React</a> is.</h3>
 					</section>
 					<section data-background="lib/img/not-so-scary2.gif">
+					</section>
+					<section data-background="lib/img/spelunking.gif">
+						<h1>get your hardhat ready for some spelunking</h1>
 					</section>
 					<section>
 						<h3>react/packages/react/src/React.js</h3>
@@ -289,6 +295,7 @@
 							element.className = "protest-div";
 							rootElement.appendChild(element);
 						</code></pre>
+						<aside class="notes">Say vanilla JS aka normal JavaScript</aside>
 					</section>
 					<section>
 						<h2>React</h2>
@@ -333,7 +340,7 @@
 						</code></pre>
 					</section>
 					<section>
-						<h3>Well, if that's the case, why'd they make it?</h3>
+						<h3>Well, if that's the case, why'd they make the createElement method?</h3>
 					</section>
 					<section>
 						<h2>React.createElement</h2>
@@ -622,6 +629,9 @@
 						</code></pre>
 					</section>
 					<section>
+						<p>so now we've gone from react.js to createelement to reactelement to xyz</p>
+					</section>
+					<section>
 						<h2>BUT GUESS WHAT</h2>
 						<p>There's an easier way.</p>
 					</section>
@@ -669,6 +679,7 @@
 					<section>
 						<h2>Transpiled JSX</h2>
 						<p><a href="https://babeljs.io/repl/#?babili=false&browsers=&build=&builtIns=false&spec=false&loose=false&code_lz=GYVwdgxgLglg9mABABwE5ygUwM5QBQCUiA3gFCKKqZQipIA8AJjAG6IQA2AhttgHJcAtpgC8AIjQYcUALTMWYgHwBBDgHcuAT2yIocAObUAFplQAaRGEwtTieTJiNMjAHT0A9PMUBuUgF8gA&debug=false&forceAllTransforms=false&shippedProposals=false&circleciRepo=&evaluate=false&fileSize=false&sourceType=module&lineWrap=true&presets=react&prettier=false&targets=&version=6.26.0&envVersion=">Babel Transpilation</a> of our original ReactElement</p>
+						<h1>MAYBE TAKE A SCREENSHOT OR GIF of BABEL HERE</h1>
 					</section>
 					<section>
 						<h2>Protected Words</h2>
@@ -786,10 +797,9 @@
 						https://github.com/facebook/react/pull/13201
 					</section>
 					<section>
-
-						<a target="_blank" rel="noopener noreferrer" href="https://github.com/facebook/react/blob/master/packages/react/src/ReactSharedInternals.js">ReactSharedInternals</a><br>
-						<a target="_blank" rel="noopener noreferrer" href="https://github.com/facebook/react/blob/master/packages/react/src/ReactCurrentOwner.js">ReactCurrentOwner</a><br>
-						<a target="_blank" rel="noopener noreferrer" href=""></a><br>
+						<a target="_blank" rel="noopener noreferrer" href="https://github.com/facebook/react/blob/master/packages/react/src/React.js">React.js</a>
+						<a target="_blank" rel="noopener noreferrer" href="https://github.com/facebook/react/blob/master/packages/react/src/ReactSharedInternals.js">ReactSharedInternals.js</a><br>
+						<a target="_blank" rel="noopener noreferrer" href="https://github.com/facebook/react/blob/master/packages/react/src/ReactCurrentOwner.js">ReactCurrentOwner.js</a><br>
 						<a target="_blank" rel="noopener noreferrer" href="https://github.com/facebook/react/tree/master/packages/react-reconciler">react-reconciler</a>
 					</section>
 					<section>
