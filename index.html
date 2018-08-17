@@ -8,6 +8,7 @@
 		<link rel="stylesheet" href="css/theme/react.css">
 		<!-- Theme used for syntax highlighting of code -->
 		<link rel="stylesheet" href="lib/css/qtcreator_dark.css">
+		<link rel="icon" type="image/x-icon" href="favicon.ico">
 		<!-- Printing and PDF exports -->
 		<script>
 			var link = document.createElement( 'link' );
@@ -226,14 +227,10 @@
 						<h3>This is literally all <a target="_blank" rel="noopener noreferrer" href="https://github.com/facebook/react/blob/659a29cecf74301532354261369e9048aac6e20f/packages/react/src/React.js#L36-L65">React</a> is.</h3>
 					</section>
 					<section data-background="lib/img/nonlooped_gifs/not-so-scary2.gif">
-					</section>
-					<section>
-						<h2>Time to get your hardhats on!</h2>
+						<h2 class="shadow">Time to get your hardhats on!</h2>
 					</section>
 					<section data-background="lib/img/hardhat.gif">
-					</section>
-					<section>
-						<h2>Let's do some code spelunking!</h2>
+						<h2 class="shadow">Let's do some code spelunking!</h2>
 					</section>
 					<section data-background="lib/img/spelunking.gif">
 					</section>
@@ -351,7 +348,7 @@
 						</code></pre>
 					</section>
 					<section>
-						<h3>Well, if that's the case, why'd they make React.createElement?</h3>
+						<h3>Well, if that's the case, why have React.createElement?</h3>
 					</section>
 					<section>
 						<h2>React.createElement</h2>
@@ -653,9 +650,9 @@
 					<section>
 						<h2>So now we've gone from</h2>
 						<p class="fragment current-fragment visible">React.createElement in React.js</p>
-						<h4>to</h4>
+						<h4 class="fragment current-fragment visible">to</h4>
 						<p class="fragment current-fragment visible">React.createElement in ReactElement.js</p>
-						<h4>to</h4>
+						<h4 class="fragment current-fragment visible">to</h4>
 						<p class="fragment current-fragment visible">ReactElement in ReactElement.js</p>
 					</section>
 					<section>
@@ -729,23 +726,510 @@
 						<h2>Transpiled JSX</h2>
 						<p><a href="https://babeljs.io/repl/#?babili=false&browsers=&build=&builtIns=false&spec=false&loose=false&code_lz=GYVwdgxgLglg9mABABwE5ygUwM5QBQCUiA3gFCKKqZQipIA8AJjAG6IQA2AhttgHJcAtpgC8AIjQYcUALTMWYgHwBBDgHcuAT2yIocAObUAFplQAaRGEwtTieTJiNMjAHT0A9PMUBuUgF8gA&debug=false&forceAllTransforms=false&shippedProposals=false&circleciRepo=&evaluate=false&fileSize=false&sourceType=module&lineWrap=true&presets=react&prettier=false&targets=&version=6.26.0&envVersion=">Babel Transpilation</a> of our original ReactElement</p>
 					</section>
-					<section data-background="lib/img/babel.png"></section>
-
-
-
+					<section data-background="lib/img/babel1.png"></section>
 					<section>
 						<h2>Protected Words</h2>
 						<p>Since JSX is closer to JavaScript than to HTML, React DOM uses camelCase property naming convention instead of HTML attribute names.</p>
-						<p>For example, class becomes className in JSX, and tabindex becomes tabIndex.</p>
-
-
-
 					</section>
+					<section data-background="lib/img/a-ha.gif"></section>
+					<section data-background="lib/img/possiblenames.png"></section>
+					<section>
+						<pre><code class="javascript" data-trim data-noescape contenteditable>
+							// When adding attributes to the HTML or SVG whitelist, be sure to
+							// also add them to this module to ensure casing and incorrect name
+							// warnings.
+							const possibleStandardNames = {
+								// HTML
+								accept: 'accept',
+								acceptcharset: 'acceptCharset',
+								'accept-charset': 'acceptCharset',
+								accesskey: 'accessKey',
+								action: 'action',
+								allowfullscreen: 'allowFullScreen',
+								alt: 'alt',
+								as: 'as',
+								async: 'async',
+								autocapitalize: 'autoCapitalize',
+								autocomplete: 'autoComplete',
+								autocorrect: 'autoCorrect',
+								autofocus: 'autoFocus',
+								autoplay: 'autoPlay',
+								autosave: 'autoSave',
+								capture: 'capture',
+								cellpadding: 'cellPadding',
+								cellspacing: 'cellSpacing',
+								challenge: 'challenge',
+								charset: 'charSet',
+								checked: 'checked',
+								children: 'children',
+								cite: 'cite',
+								class: 'className',
+								classid: 'classID',
+								classname: 'className',
+								cols: 'cols',
+								colspan: 'colSpan',
+								content: 'content',
+								contenteditable: 'contentEditable',
+								contextmenu: 'contextMenu',
+								controls: 'controls',
+								controlslist: 'controlsList',
+								coords: 'coords',
+								crossorigin: 'crossOrigin',
+								dangerouslysetinnerhtml: 'dangerouslySetInnerHTML',
+								data: 'data',
+								datetime: 'dateTime',
+								default: 'default',
+								defaultchecked: 'defaultChecked',
+								defaultvalue: 'defaultValue',
+								defer: 'defer',
+								dir: 'dir',
+								disabled: 'disabled',
+								download: 'download',
+								draggable: 'draggable',
+								enctype: 'encType',
+								for: 'htmlFor',
+								form: 'form',
+								formmethod: 'formMethod',
+								formaction: 'formAction',
+								formenctype: 'formEncType',
+								formnovalidate: 'formNoValidate',
+								formtarget: 'formTarget',
+								frameborder: 'frameBorder',
+								headers: 'headers',
+								height: 'height',
+								hidden: 'hidden',
+								high: 'high',
+								href: 'href',
+								hreflang: 'hrefLang',
+								htmlfor: 'htmlFor',
+								httpequiv: 'httpEquiv',
+								'http-equiv': 'httpEquiv',
+								icon: 'icon',
+								id: 'id',
+								innerhtml: 'innerHTML',
+								inputmode: 'inputMode',
+								integrity: 'integrity',
+								is: 'is',
+								itemid: 'itemID',
+								itemprop: 'itemProp',
+								itemref: 'itemRef',
+								itemscope: 'itemScope',
+								itemtype: 'itemType',
+								keyparams: 'keyParams',
+								keytype: 'keyType',
+								kind: 'kind',
+								label: 'label',
+								lang: 'lang',
+								list: 'list',
+								loop: 'loop',
+								low: 'low',
+								manifest: 'manifest',
+								marginwidth: 'marginWidth',
+								marginheight: 'marginHeight',
+								max: 'max',
+								maxlength: 'maxLength',
+								media: 'media',
+								mediagroup: 'mediaGroup',
+								method: 'method',
+								min: 'min',
+								minlength: 'minLength',
+								multiple: 'multiple',
+								muted: 'muted',
+								name: 'name',
+								nomodule: 'noModule',
+								nonce: 'nonce',
+								novalidate: 'noValidate',
+								open: 'open',
+								optimum: 'optimum',
+								pattern: 'pattern',
+								placeholder: 'placeholder',
+								playsinline: 'playsInline',
+								poster: 'poster',
+								preload: 'preload',
+								profile: 'profile',
+								radiogroup: 'radioGroup',
+								readonly: 'readOnly',
+								referrerpolicy: 'referrerPolicy',
+								rel: 'rel',
+								required: 'required',
+								reversed: 'reversed',
+								role: 'role',
+								rows: 'rows',
+								rowspan: 'rowSpan',
+								sandbox: 'sandbox',
+								scope: 'scope',
+								scoped: 'scoped',
+								scrolling: 'scrolling',
+								seamless: 'seamless',
+								selected: 'selected',
+								shape: 'shape',
+								size: 'size',
+								sizes: 'sizes',
+								span: 'span',
+								spellcheck: 'spellCheck',
+								src: 'src',
+								srcdoc: 'srcDoc',
+								srclang: 'srcLang',
+								srcset: 'srcSet',
+								start: 'start',
+								step: 'step',
+								style: 'style',
+								summary: 'summary',
+								tabindex: 'tabIndex',
+								target: 'target',
+								title: 'title',
+								type: 'type',
+								usemap: 'useMap',
+								value: 'value',
+								width: 'width',
+								wmode: 'wmode',
+								wrap: 'wrap',
 
+								// SVG
+								about: 'about',
+								accentheight: 'accentHeight',
+								'accent-height': 'accentHeight',
+								accumulate: 'accumulate',
+								additive: 'additive',
+								alignmentbaseline: 'alignmentBaseline',
+								'alignment-baseline': 'alignmentBaseline',
+								allowreorder: 'allowReorder',
+								alphabetic: 'alphabetic',
+								amplitude: 'amplitude',
+								arabicform: 'arabicForm',
+								'arabic-form': 'arabicForm',
+								ascent: 'ascent',
+								attributename: 'attributeName',
+								attributetype: 'attributeType',
+								autoreverse: 'autoReverse',
+								azimuth: 'azimuth',
+								basefrequency: 'baseFrequency',
+								baselineshift: 'baselineShift',
+								'baseline-shift': 'baselineShift',
+								baseprofile: 'baseProfile',
+								bbox: 'bbox',
+								begin: 'begin',
+								bias: 'bias',
+								by: 'by',
+								calcmode: 'calcMode',
+								capheight: 'capHeight',
+								'cap-height': 'capHeight',
+								clip: 'clip',
+								clippath: 'clipPath',
+								'clip-path': 'clipPath',
+								clippathunits: 'clipPathUnits',
+								cliprule: 'clipRule',
+								'clip-rule': 'clipRule',
+								color: 'color',
+								colorinterpolation: 'colorInterpolation',
+								'color-interpolation': 'colorInterpolation',
+								colorinterpolationfilters: 'colorInterpolationFilters',
+								'color-interpolation-filters': 'colorInterpolationFilters',
+								colorprofile: 'colorProfile',
+								'color-profile': 'colorProfile',
+								colorrendering: 'colorRendering',
+								'color-rendering': 'colorRendering',
+								contentscripttype: 'contentScriptType',
+								contentstyletype: 'contentStyleType',
+								cursor: 'cursor',
+								cx: 'cx',
+								cy: 'cy',
+								d: 'd',
+								datatype: 'datatype',
+								decelerate: 'decelerate',
+								descent: 'descent',
+								diffuseconstant: 'diffuseConstant',
+								direction: 'direction',
+								display: 'display',
+								divisor: 'divisor',
+								dominantbaseline: 'dominantBaseline',
+								'dominant-baseline': 'dominantBaseline',
+								dur: 'dur',
+								dx: 'dx',
+								dy: 'dy',
+								edgemode: 'edgeMode',
+								elevation: 'elevation',
+								enablebackground: 'enableBackground',
+								'enable-background': 'enableBackground',
+								end: 'end',
+								exponent: 'exponent',
+								externalresourcesrequired: 'externalResourcesRequired',
+								fill: 'fill',
+								fillopacity: 'fillOpacity',
+								'fill-opacity': 'fillOpacity',
+								fillrule: 'fillRule',
+								'fill-rule': 'fillRule',
+								filter: 'filter',
+								filterres: 'filterRes',
+								filterunits: 'filterUnits',
+								floodopacity: 'floodOpacity',
+								'flood-opacity': 'floodOpacity',
+								floodcolor: 'floodColor',
+								'flood-color': 'floodColor',
+								focusable: 'focusable',
+								fontfamily: 'fontFamily',
+								'font-family': 'fontFamily',
+								fontsize: 'fontSize',
+								'font-size': 'fontSize',
+								fontsizeadjust: 'fontSizeAdjust',
+								'font-size-adjust': 'fontSizeAdjust',
+								fontstretch: 'fontStretch',
+								'font-stretch': 'fontStretch',
+								fontstyle: 'fontStyle',
+								'font-style': 'fontStyle',
+								fontvariant: 'fontVariant',
+								'font-variant': 'fontVariant',
+								fontweight: 'fontWeight',
+								'font-weight': 'fontWeight',
+								format: 'format',
+								from: 'from',
+								fx: 'fx',
+								fy: 'fy',
+								g1: 'g1',
+								g2: 'g2',
+								glyphname: 'glyphName',
+								'glyph-name': 'glyphName',
+								glyphorientationhorizontal: 'glyphOrientationHorizontal',
+								'glyph-orientation-horizontal': 'glyphOrientationHorizontal',
+								glyphorientationvertical: 'glyphOrientationVertical',
+								'glyph-orientation-vertical': 'glyphOrientationVertical',
+								glyphref: 'glyphRef',
+								gradienttransform: 'gradientTransform',
+								gradientunits: 'gradientUnits',
+								hanging: 'hanging',
+								horizadvx: 'horizAdvX',
+								'horiz-adv-x': 'horizAdvX',
+								horizoriginx: 'horizOriginX',
+								'horiz-origin-x': 'horizOriginX',
+								ideographic: 'ideographic',
+								imagerendering: 'imageRendering',
+								'image-rendering': 'imageRendering',
+								in2: 'in2',
+								in: 'in',
+								inlist: 'inlist',
+								intercept: 'intercept',
+								k1: 'k1',
+								k2: 'k2',
+								k3: 'k3',
+								k4: 'k4',
+								k: 'k',
+								kernelmatrix: 'kernelMatrix',
+								kernelunitlength: 'kernelUnitLength',
+								kerning: 'kerning',
+								keypoints: 'keyPoints',
+								keysplines: 'keySplines',
+								keytimes: 'keyTimes',
+								lengthadjust: 'lengthAdjust',
+								letterspacing: 'letterSpacing',
+								'letter-spacing': 'letterSpacing',
+								lightingcolor: 'lightingColor',
+								'lighting-color': 'lightingColor',
+								limitingconeangle: 'limitingConeAngle',
+								local: 'local',
+								markerend: 'markerEnd',
+								'marker-end': 'markerEnd',
+								markerheight: 'markerHeight',
+								markermid: 'markerMid',
+								'marker-mid': 'markerMid',
+								markerstart: 'markerStart',
+								'marker-start': 'markerStart',
+								markerunits: 'markerUnits',
+								markerwidth: 'markerWidth',
+								mask: 'mask',
+								maskcontentunits: 'maskContentUnits',
+								maskunits: 'maskUnits',
+								mathematical: 'mathematical',
+								mode: 'mode',
+								numoctaves: 'numOctaves',
+								offset: 'offset',
+								opacity: 'opacity',
+								operator: 'operator',
+								order: 'order',
+								orient: 'orient',
+								orientation: 'orientation',
+								origin: 'origin',
+								overflow: 'overflow',
+								overlineposition: 'overlinePosition',
+								'overline-position': 'overlinePosition',
+								overlinethickness: 'overlineThickness',
+								'overline-thickness': 'overlineThickness',
+								paintorder: 'paintOrder',
+								'paint-order': 'paintOrder',
+								panose1: 'panose1',
+								'panose-1': 'panose1',
+								pathlength: 'pathLength',
+								patterncontentunits: 'patternContentUnits',
+								patterntransform: 'patternTransform',
+								patternunits: 'patternUnits',
+								pointerevents: 'pointerEvents',
+								'pointer-events': 'pointerEvents',
+								points: 'points',
+								pointsatx: 'pointsAtX',
+								pointsaty: 'pointsAtY',
+								pointsatz: 'pointsAtZ',
+								prefix: 'prefix',
+								preservealpha: 'preserveAlpha',
+								preserveaspectratio: 'preserveAspectRatio',
+								primitiveunits: 'primitiveUnits',
+								property: 'property',
+								r: 'r',
+								radius: 'radius',
+								refx: 'refX',
+								refy: 'refY',
+								renderingintent: 'renderingIntent',
+								'rendering-intent': 'renderingIntent',
+								repeatcount: 'repeatCount',
+								repeatdur: 'repeatDur',
+								requiredextensions: 'requiredExtensions',
+								requiredfeatures: 'requiredFeatures',
+								resource: 'resource',
+								restart: 'restart',
+								result: 'result',
+								results: 'results',
+								rotate: 'rotate',
+								rx: 'rx',
+								ry: 'ry',
+								scale: 'scale',
+								security: 'security',
+								seed: 'seed',
+								shaperendering: 'shapeRendering',
+								'shape-rendering': 'shapeRendering',
+								slope: 'slope',
+								spacing: 'spacing',
+								specularconstant: 'specularConstant',
+								specularexponent: 'specularExponent',
+								speed: 'speed',
+								spreadmethod: 'spreadMethod',
+								startoffset: 'startOffset',
+								stddeviation: 'stdDeviation',
+								stemh: 'stemh',
+								stemv: 'stemv',
+								stitchtiles: 'stitchTiles',
+								stopcolor: 'stopColor',
+								'stop-color': 'stopColor',
+								stopopacity: 'stopOpacity',
+								'stop-opacity': 'stopOpacity',
+								strikethroughposition: 'strikethroughPosition',
+								'strikethrough-position': 'strikethroughPosition',
+								strikethroughthickness: 'strikethroughThickness',
+								'strikethrough-thickness': 'strikethroughThickness',
+								string: 'string',
+								stroke: 'stroke',
+								strokedasharray: 'strokeDasharray',
+								'stroke-dasharray': 'strokeDasharray',
+								strokedashoffset: 'strokeDashoffset',
+								'stroke-dashoffset': 'strokeDashoffset',
+								strokelinecap: 'strokeLinecap',
+								'stroke-linecap': 'strokeLinecap',
+								strokelinejoin: 'strokeLinejoin',
+								'stroke-linejoin': 'strokeLinejoin',
+								strokemiterlimit: 'strokeMiterlimit',
+								'stroke-miterlimit': 'strokeMiterlimit',
+								strokewidth: 'strokeWidth',
+								'stroke-width': 'strokeWidth',
+								strokeopacity: 'strokeOpacity',
+								'stroke-opacity': 'strokeOpacity',
+								suppresscontenteditablewarning: 'suppressContentEditableWarning',
+								suppresshydrationwarning: 'suppressHydrationWarning',
+								surfacescale: 'surfaceScale',
+								systemlanguage: 'systemLanguage',
+								tablevalues: 'tableValues',
+								targetx: 'targetX',
+								targety: 'targetY',
+								textanchor: 'textAnchor',
+								'text-anchor': 'textAnchor',
+								textdecoration: 'textDecoration',
+								'text-decoration': 'textDecoration',
+								textlength: 'textLength',
+								textrendering: 'textRendering',
+								'text-rendering': 'textRendering',
+								to: 'to',
+								transform: 'transform',
+								typeof: 'typeof',
+								u1: 'u1',
+								u2: 'u2',
+								underlineposition: 'underlinePosition',
+								'underline-position': 'underlinePosition',
+								underlinethickness: 'underlineThickness',
+								'underline-thickness': 'underlineThickness',
+								unicode: 'unicode',
+								unicodebidi: 'unicodeBidi',
+								'unicode-bidi': 'unicodeBidi',
+								unicoderange: 'unicodeRange',
+								'unicode-range': 'unicodeRange',
+								unitsperem: 'unitsPerEm',
+								'units-per-em': 'unitsPerEm',
+								unselectable: 'unselectable',
+								valphabetic: 'vAlphabetic',
+								'v-alphabetic': 'vAlphabetic',
+								values: 'values',
+								vectoreffect: 'vectorEffect',
+								'vector-effect': 'vectorEffect',
+								version: 'version',
+								vertadvy: 'vertAdvY',
+								'vert-adv-y': 'vertAdvY',
+								vertoriginx: 'vertOriginX',
+								'vert-origin-x': 'vertOriginX',
+								vertoriginy: 'vertOriginY',
+								'vert-origin-y': 'vertOriginY',
+								vhanging: 'vHanging',
+								'v-hanging': 'vHanging',
+								videographic: 'vIdeographic',
+								'v-ideographic': 'vIdeographic',
+								viewbox: 'viewBox',
+								viewtarget: 'viewTarget',
+								visibility: 'visibility',
+								vmathematical: 'vMathematical',
+								'v-mathematical': 'vMathematical',
+								vocab: 'vocab',
+								widths: 'widths',
+								wordspacing: 'wordSpacing',
+								'word-spacing': 'wordSpacing',
+								writingmode: 'writingMode',
+								'writing-mode': 'writingMode',
+								x1: 'x1',
+								x2: 'x2',
+								x: 'x',
+								xchannelselector: 'xChannelSelector',
+								xheight: 'xHeight',
+								'x-height': 'xHeight',
+								xlinkactuate: 'xlinkActuate',
+								'xlink:actuate': 'xlinkActuate',
+								xlinkarcrole: 'xlinkArcrole',
+								'xlink:arcrole': 'xlinkArcrole',
+								xlinkhref: 'xlinkHref',
+								'xlink:href': 'xlinkHref',
+								xlinkrole: 'xlinkRole',
+								'xlink:role': 'xlinkRole',
+								xlinkshow: 'xlinkShow',
+								'xlink:show': 'xlinkShow',
+								xlinktitle: 'xlinkTitle',
+								'xlink:title': 'xlinkTitle',
+								xlinktype: 'xlinkType',
+								'xlink:type': 'xlinkType',
+								xmlbase: 'xmlBase',
+								'xml:base': 'xmlBase',
+								xmllang: 'xmlLang',
+								'xml:lang': 'xmlLang',
+								xmlns: 'xmlns',
+								'xml:space': 'xmlSpace',
+								xmlnsxlink: 'xmlnsXlink',
+								'xmlns:xlink': 'xmlnsXlink',
+								xmlspace: 'xmlSpace',
+								y1: 'y1',
+								y2: 'y2',
+								y: 'y',
+								ychannelselector: 'yChannelSelector',
+								z: 'z',
+								zoomandpan: 'zoomAndPan',
+							};
 
-
-
-
+							export default possibleStandardNames;
+						</code></pre>
+					</section>
+					<section>
+						<h2>498 lines?!</h2>
+					</section>
 					<section>
 						<h2>CURLY BRACES</h2>
 						<h3>What are you???</h3>
@@ -764,7 +1248,7 @@
 							JSXChild :
 							{ JSXChildExpression }
 						</code></pre>
-						<aside class="notes">We can see from the documentation that it's an assignment expression or a child expression. In other words,</aside>
+						<aside class="notes">We can see from the documentation that it's an assignment expression or a child expression. Use JavaScript expressions within JSX or as children in React. In other words, </aside>
 					</section>
 					<section>
 						<p>It's JavaScript! Living inside a JSX world!</p>
@@ -808,17 +1292,42 @@
 							}
 						</code></pre>
 					</section>
+					<section data-background="lib/img/nonlooped_gifs/props-tupac.gif">
+						<p class="shadow">Gimme my props!</p>
+						<aside class="notes">Props are just properties of a Component! They're just an object argument with some data.</aside>
+					</section>
 					<section>
-						<p>ADD INFO</p>
+						<pre><code class="javascript" data-trim data-noescape contenteditable>
+							const rootElement = document.getElementById('root');
+
+							const element = React.createElement(
+								'div',
+								{ className: 'protest-div' },
+								'Always together, never div-ided'
+							);
+
+							ReactDOM.render(element, rootElement);
+						</code></pre>
+					</section>
+					<section>
+						<pre><code class="javascript" data-trim data-noescape contenteditable>	
+							class Protest extends React.Component {
+								render() {
+									return <div className="protest-div">
+										{this.props.chant}
+									</div>;
+								}
+							}
+
+							const rootElement = document.getElementById('root');
+
+							const element = <Protest chant="Always together, never div-ided." />;
+
+							ReactDOM.render(element, rootElement);
+						</code></pre>
 					</section>
 					<section data-background="lib/img/nonlooped_gifs/props.gif">
 						<aside class="notes">https://kinardist-media.com/ @the_kinardist</aside>
-					</section>
-					<section data-background="lib/img/nonlooped_gifs/props-tupac.gif">
-						<p class="shadow">Gimme my props!</p>
-					</section>
-					<section>
-						<p>Going back to JSX AND Protected Words temporarily - React Components need to be capitalized - otherwise it'll look like an HTML tag instead! :(</p>
 					</section>
 					<section>
 						<h2>Now that we have a component, let's render it to the DOM</h2>
@@ -943,7 +1452,7 @@
 					</section>
 					<section>
 						<pre><code class="javascript" data-trim data-noescape contenteditable>
-						  return DOMRenderer.getPublicRootInstance(root._internalRoot);
+							return DOMRenderer.getPublicRootInstance(root._internalRoot);
 						</code></pre>
 						<br>
 						<pre><code class="javascript" data-trim data-noescape contenteditable>
@@ -975,24 +1484,30 @@
 						<aside class="notes">Ryan Yurkanin</aside>
 					</section>
 					<section data-background="lib/img/magic2.gif">
-						<h2 class="shadow">moar magic</h2>
+						<h2 class="shadow">MORE REACT MAGIC</h2>
 					</section>
+					<section data-background="lib/img/secret.gif"></section>
 				</section>
 
 				<section>
 					<section>
 						<h1>Secrets?</h1>
-						<p>__SECRET_INTERNALS_DO_NOT_USE_OR_YOU_WILL_BE_FIRED</p>
-						<a target="_blank" rel="noopener noreferrer" href="https://github.com/facebook/react/blob/659a29cecf74301532354261369e9048aac6e20f/packages/shared/ReactSharedInternals.js">React Shared Internals?</a>
-						https://github.com/facebook/react/blob/659a29cecf74301532354261369e9048aac6e20f/packages/react/src/React.js#L64
-
-						https://github.com/facebook/react/pull/13201
+						<p class="smallish">__SECRET_INTERNALS_DO_NOT_USE_OR_YOU_WILL_BE_FIRED</p>
 					</section>
+					<section data-background="lib/img/secrets.png">
+						<aside class="notes"><a target="_blank" rel="noopener noreferrer" href="https://github.com/facebook/react/blob/659a29cecf74301532354261369e9048aac6e20f/packages/shared/ReactSharedInternals.js">React Shared Internals?</a>
+						https://github.com/facebook/react/pull/13201</aside>
+					</section>
+					<section data-background="lib/img/react-reactsharedinternals.png"></section>
+					<section data-background="lib/img/reactsharedinternals.png"></section>
 					<section>
-						<a target="_blank" rel="noopener noreferrer" href="https://github.com/facebook/react/blob/master/packages/react/src/React.js">React.js</a>
-						<a target="_blank" rel="noopener noreferrer" href="https://github.com/facebook/react/blob/master/packages/react/src/ReactSharedInternals.js">ReactSharedInternals.js</a><br>
-						<a target="_blank" rel="noopener noreferrer" href="https://github.com/facebook/react/blob/master/packages/react/src/ReactCurrentOwner.js">ReactCurrentOwner.js</a><br>
-						<a target="_blank" rel="noopener noreferrer" href="https://github.com/facebook/react/tree/master/packages/react-reconciler">react-reconciler</a>
+						<a class="fragment current-fragment visible" target="_blank" rel="noopener noreferrer" href="https://github.com/facebook/react/blob/master/packages/react/src/React.js">React.js</a>
+						<p class="fragment current-fragment visible">to</p>
+						<a class="fragment current-fragment visible" target="_blank" rel="noopener noreferrer" href="https://github.com/facebook/react/blob/master/packages/react/src/ReactSharedInternals.js">ReactSharedInternals.js</a><br>
+						<p class="fragment current-fragment visible">to</p>
+						<a class="fragment current-fragment visible" target="_blank" rel="noopener noreferrer" href="https://github.com/facebook/react/blob/master/packages/react/src/ReactCurrentOwner.js">ReactCurrentOwner.js</a><br>
+						<p class="fragment current-fragment visible">to</p>
+						<a class="fragment current-fragment visible" target="_blank" rel="noopener noreferrer" href="https://github.com/facebook/react/tree/master/packages/react-reconciler">react-reconciler</a>
 					</section>
 					<section>
 						<h2>react-reconciler</h2>
@@ -1000,12 +1515,18 @@
 						<p>Its API is not as stable as that of React, React Native, or React DOM, and does not follow the common versioning scheme.</p>
 						<p>Use it at your own risk.</p>
 					</section>
+					<section data-background="lib/img/scary.gif"></section>
+					<section data-background="lib/img/magic3.gif">
+						<h2 class="shadow">REACT MAGIC</h2>
+					</section>
+					<section data-background="lib/img/whew.gif">
+					</section>
 				</section>
 
 				<section>
-					<section>
-						<h1>That's all folks!</h1>
-						<h3>...almost</h3>
+					<section data-background="lib/img/end.gif"></section>
+					<section data-background="lib/img/spelunk.gif">
+						<aside class="notes">I highly encourage you to do some spelunking on your own!</aside>
 					</section>
 					<section data-background="lib/img/nonlooped_gifs/ready.gif">
 						<aside class="notes">With my newfound knowledge, I felt armed and ready to take on the world of React.</aside>
@@ -1022,7 +1543,7 @@
 					</section>
 					<section>
 						<a target="_blank" rel="noopener noreferrer" href="http://mochimachine.com/">Jennifer Wong</a> | <a target="_blank" rel="noopener noreferrer" href="https://twitter.com/mybluewristband">@mybluewristband</a></p>
-						<p>jennz0r.github.io/translating-react</p>
+						<p><a target="_blank" rel="noopener noreferrer" href="http://mochimachine.com/">jennz0r.github.io/translating-react</a></p>
 					</section>
 				</section>
 			</div>

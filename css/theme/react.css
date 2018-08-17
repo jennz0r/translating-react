@@ -307,3 +307,6 @@ body {
 
 .reveal .boldish {
   font-weight: 400; }
+
+.reveal .smallish {
+  font-size: 0.9em; }
