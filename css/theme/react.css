@@ -304,3 +304,6 @@ body {
 
 .reveal .shadow {
   text-shadow: 3px 4px 15px black; }
+
+.reveal .boldish {
+  font-weight: 400; }

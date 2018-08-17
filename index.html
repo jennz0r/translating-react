@@ -21,10 +21,16 @@
 		<div class="reveal">
 			<div class="slides">
 				<section>
-					<h1>Translating React</h1>
-					<img src="lib/img/react.svg" alt="react logo" class="img-no-format" width="100px" height="100px"/>
-					<p>by <a target="_blank" rel="noopener noreferrer" href="http://mochimachine.com/">Jennifer Wong</a> | <a target="_blank" rel="noopener noreferrer" href="https://twitter.com/mybluewristband">@mybluewristband</a></p>
+					<section>
+						<h1>translating React</h1>
+						<img src="lib/img/react.svg" alt="react logo" class="img-no-format" width="100px" height="100px"/>
+						<p>by <a target="_blank" rel="noopener noreferrer" href="http://mochimachine.com/">Jennifer Wong</a> | <a target="_blank" rel="noopener noreferrer" href="https://twitter.com/mybluewristband">@mybluewristband</a></p>
+					</section>
+					<section>
+						<p>jennz0r.github.io/translating-react</p>
+					</section>
 				</section>
+				
 				<section>
 					<section data-background="lib/img/nonlooped_gifs/whoru.gif">
 						<h1 class="shadow">Who R U?</h1>
@@ -104,7 +110,7 @@
 					</section>
 					<section>
 						<h2>BUT..</h2>
-						<p class="fragment current-visible">I'm rewriting existing code RIGHT NOW.</p>
+						<p class="fragment current-fragment visible">I'm rewriting existing code RIGHT NOW.</p>
 					</section>
 					<section data-background="lib/img/nonlooped_gifs/ok.gif">
 					</section>
@@ -136,7 +142,7 @@
 					</section>
 					<section>
 						<h3>Oh yeah, it's open source!</h3>
-						<p class="fragment current-visible"><a target="_blank" rel="noopener noreferrer" href="https://github.com/facebook/react/blob/659a29cecf74301532354261369e9048aac6e20f/packages/react/src/React.js">GitHub</a></p>
+						<p class="fragment current-fragment visible"><a target="_blank" rel="noopener noreferrer" href="https://github.com/facebook/react/blob/659a29cecf74301532354261369e9048aac6e20f/packages/react/src/React.js">GitHub</a></p>
 					</section>
 					<section data-background="lib/img/react-github.png">
 						<aside class="notes">Say some thing about React being open source and available etc.</aside>
@@ -347,7 +353,7 @@
 					</section>
 					<section>
 						<h2>React.createElement</h2>
-						<p class="fragment current-visible">Where's it come from?</p>
+						<p class="fragment current-fragment visible">Where's it come from?</p>
 					</section>
 					<section data-background="lib/img/closer-look-adventure-time.gif"></section>
 					<section>
@@ -669,11 +675,11 @@
 					</section>
 					<section>
 						<h2>JavaScript XML</h2>
-						<p>XML-like syntax extension to ECMAScript.</p>
+						<p>XML-like syntax extension to ECMAScript</p>
 					</section>
 					<section>
 						<h2>JavaScript XML</h2>
-						<p>JSX is just syntactic sugar for calling React.createElement(component, props, ...children).
+						<p>JSX is just syntactic sugar for calling React.createElement(component, props, ...children)
 					</section>
 					<section data-background="lib/img/nonlooped_gifs/sugar.gif">
 						<h2 class="shadow">Syntatic SUGAR</h2>
@@ -684,11 +690,11 @@
 					</section>
 					<section>
 						<h2>JSX v. JavaScript</h2>
-						<img src="lib/img/better.gif" alt="video from annie get your gun, song anything you can do i can do better" class="img-no-format" />
+						<img src="lib/img/better.gif" alt="video from annie get your gun, song anything you can do i can do better" class="img-no-format" width="800"/>
 					</section>
 					<section>
 						<h2>React + JSX</h2>
-						<p>React comes with the default set of syntax-transformers that ship with Babel.</p>
+						<p>React comes with the default set of syntax-transformers that ship with Babel</p>
 					</section>
 					<section data-background="lib/img/babel-jsx.png">
 					</section>
@@ -731,9 +737,17 @@
 							JSXChild :
 							{ JSXChildExpression }
 						</code></pre>
+						<aside class="notes">We can see from the documentation that it's an assignment expression or a child expression. In other words,</aside>
 					</section>
 					<section>
-						<p>It's JavaScript world! But inside JSX land!</p>
+						<p>It's JavaScript! Living inside a JSX world!</p>
+					</section>
+					<section data-background="lib/img/material.gif">
+						<h3 class="shadow boldish">We are living in a JSX world.<br>And I am a JavaScript girl.</h3>
+					</section>
+					<section>
+						<h2>Logo?</h2>
+						<a href="https://github.com/jsx/jsx/issues/9" class="fragment current-fragment visible">JSX GitHub Issues</a>
 					</section>
 					<section>
 						<p>Now that we have an easier way of using React.createElement, let's make some...</p>
@@ -747,8 +761,12 @@
 					<section>
 						<h1>React COMPONENT</h1>
 						<img src="lib/img/react.svg" alt="react logo" class="img-no-format" width="100px" height="100px"/>
-						<p><a target="_blank" rel="noopener noreferrer" href="https://github.com/facebook/react/blob/659a29cecf74301532354261369e9048aac6e20f/packages/react/src/React.js#L18">React Import from ReactBaseClasses</a></p>
-						<p><a target="_blank" rel="noopener noreferrer" href="https://github.com/facebook/react/blob/659a29cecf74301532354261369e9048aac6e20f/packages/react/src/ReactBaseClasses.js">React Base Classes in GitHub</a></p>
+					</section>
+					<section data-background="lib/img/react-reactbaseclasses.png">
+						<aside class="notes"><a target="_blank" rel="noopener noreferrer" href="https://github.com/facebook/react/blob/659a29cecf74301532354261369e9048aac6e20f/packages/react/src/React.js#L18">React Import from ReactBaseClasses</a></aside>
+					</section>
+					<section data-background="lib/img/reactbaseclasses.png">
+						<aside class="notes"><a target="_blank" rel="noopener noreferrer" href="https://github.com/facebook/react/blob/659a29cecf74301532354261369e9048aac6e20f/packages/react/src/ReactBaseClasses.js">React Base Classes in GitHub</a></aside>
 					</section>
 					<section>
 						<h3>React.Component</h3>
@@ -768,21 +786,7 @@
 						</code></pre>
 					</section>
 					<section>
-						<h3>React.PureComponent</h3>
-						<pre><code class="javascript" data-trim data-noescape contenteditable>
-							function PureComponent(props, context, updater) {
-								this.props = props;
-								this.context = context;
-
-								// If a component has string refs,
-								// we will assign a different object later.
-								this.refs = emptyObject;
-								this.updater = updater || ReactNoopUpdateQueue;
-							}
-						</code></pre>
-					</section>
-					<section>
-						<p>ADD INFO </p>
+						<p>ADD INFO</p>
 					</section>
 					<section data-background="lib/img/nonlooped_gifs/props.gif">
 						<aside class="notes">https://kinardist-media.com/ @the_kinardist</aside>
@@ -793,35 +797,40 @@
 					<section>
 						<p>Going back to JSX AND Protected Words temporarily - React Components need to be capitalized - otherwise it'll look like an HTML tag instead! :(</p>
 					</section>
+					<section>
+						<h2>Now that we have a component, let's render it to the DOM</h2>
+					</section>
 				</section>
 
 				<section>
 					<section>
-						<h1>React DOM</h1>
+						<h1>React<br>DOM</h1>
 						<img src="lib/img/react.svg" alt="react logo" class="img-no-format" width="100px" height="100px"/>
 					</section>
-					<section>
-						<h2>Now that we have something, let's render it to the DOM</h2>
-					</section>
 					<section data-background="lib/img/react-dom.png">
-						<aside class="notes">Ok we're now out of the react package and into the react-dom package.</aside>
+						<aside class="notes">Ok we're now out of the react package and into the react-dom package. I used to wonder: WHY import both react and react-dom?</aside>
+					</section>
+					<section data-background="lib/img/abstraction.gif">
+						<aside class="notes">Well, abstraction is important</aside>
 					</section>
 					<section>
 						<h3>react/packages/react-dom/</h3>
 					</section>
 					<section>
-						react-dom
-							findDOMNode
-							render
-							unmountComponentAtNode
-						react-dom/server
-							renderToString
-							renderToStaticMarkup
+						<ul>
+							<li>react-dom</li>
+							<ul>
+								<li>findDOMNode</li>
+								<li>render</li>
+								<li>unmountComponentAtNode</li>
+							</ul>
+						</ul>
 					</section>
 					<section>
 						<h3>react/packages/react-dom/src/client/ReactDOM.js</h3>
 					</section>
 					<section>
+						<h2>render</h2>
 						<pre><code class="javascript" data-trim data-noescape contenteditable>
 							render(
 								element: React$Element<any>,
@@ -836,6 +845,103 @@
 									callback,
 								);
 							},
+						</code></pre>
+					</section>
+					<section>
+						<h2>legacyRenderSubtreeIntoContainer</h2>
+						<pre><code class="javascript" data-trim data-noescape contenteditable>
+							function legacyRenderSubtreeIntoContainer(
+								parentComponent: ?React$Component<any, any>,
+								children: ReactNodeList,
+								container: DOMContainer,
+								forceHydrate: boolean,
+								callback: ?Function,
+							) {
+								// TODO: Ensure all entry points contain this check
+								invariant(
+									isValidContainer(container),
+									'Target container is not a DOM element.',
+								);
+
+								if (__DEV__) {
+									topLevelUpdateWarnings(container);
+								}
+
+								// TODO: Without `any` type, Flow says "Property cannot be accessed on any
+								// member of intersection type." Whyyyyyy.
+								let root: Root = (container._reactRootContainer: any);
+								if (!root) {
+									// Initial mount
+									root = container._reactRootContainer = legacyCreateRootFromDOMContainer(
+										container,
+										forceHydrate,
+									);
+									if (typeof callback === 'function') {
+										const originalCallback = callback;
+										callback = function() {
+											const instance = DOMRenderer.getPublicRootInstance(root._internalRoot);
+											originalCallback.call(instance);
+										};
+									}
+									// Initial mount should not be batched.
+									DOMRenderer.unbatchedUpdates(() => {
+										if (parentComponent != null) {
+											root.legacy_renderSubtreeIntoContainer(
+												parentComponent,
+												children,
+												callback,
+											);
+										} else {
+											root.render(children, callback);
+										}
+									});
+								} else {
+									if (typeof callback === 'function') {
+										const originalCallback = callback;
+										callback = function() {
+											const instance = DOMRenderer.getPublicRootInstance(root._internalRoot);
+											originalCallback.call(instance);
+										};
+									}
+									// Update
+									if (parentComponent != null) {
+										root.legacy_renderSubtreeIntoContainer(
+											parentComponent,
+											children,
+											callback,
+										);
+									} else {
+										root.render(children, callback);
+									}
+								}
+								return DOMRenderer.getPublicRootInstance(root._internalRoot);
+							}
+						</code></pre>
+					</section>
+					<section>
+						<pre><code class="javascript" data-trim data-noescape contenteditable>
+							import * as DOMRenderer from 'react-reconciler/inline.dom';
+						</code></pre>
+					</section>
+					<section data-background="lib/img/react-reconciler.png"></section>
+					<section>
+						<h2>ReactFiberReconciler</h2>
+					</section>
+					<section data-background="lib/img/back.gif">
+						<h3 class="shadow">We'll come back to that.</h3>
+					</section>
+					<section>
+						<h2>ReactDOM.render</h2>
+						<pre><code class="javascript" data-trim data-noescape contenteditable>
+							const rootElement = document.getElementById('root');
+
+							const element = React.createElement(
+								'div',
+								{ className: 'protest-div' },
+								'Always together, never div-ided'
+							);
+
+							ReactDOM.render(element, rootElement);
 						</code></pre>
 					</section>
 				</section>
@@ -877,8 +983,13 @@
 					<section>
 						<h2>Big THANKS!</h2>
 					</section>
+					<section data-background="lib/img/egghead.png"></section>
 					<section>
-
+						<img src="lib/img/thanks.gif" alt="pizza la commercial pizza with pretty eyes saying thank you my friends" class="img-no-format" width="800"/>
+					</section>
+					<section>
+						<a target="_blank" rel="noopener noreferrer" href="http://mochimachine.com/">Jennifer Wong</a> | <a target="_blank" rel="noopener noreferrer" href="https://twitter.com/mybluewristband">@mybluewristband</a></p>
+						<p>jennz0r.github.io/translating-react</p>
 					</section>
 				</section>
 			</div>
