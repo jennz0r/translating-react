@@ -697,6 +697,7 @@
 						<p>React comes with the default set of syntax-transformers that ship with Babel</p>
 					</section>
 					<section data-background="lib/img/babel-jsx.png">
+						<aside class="notes"><a href="https://babeljs.io/docs/en/babel-plugin-transform-react-jsx/" target="_blank" rel="noopener noreferrer">babel-plugin-transform-react-jsx</a></aside>
 					</section>
 					<section>
 						<h2>Don't forget the React!</h2>
@@ -920,6 +921,10 @@
 					</section>
 					<section>
 						<pre><code class="javascript" data-trim data-noescape contenteditable>
+						  return DOMRenderer.getPublicRootInstance(root._internalRoot);
+						</code></pre>
+						<br>
+						<pre><code class="javascript" data-trim data-noescape contenteditable>
 							import * as DOMRenderer from 'react-reconciler/inline.dom';
 						</code></pre>
 					</section>
@@ -927,8 +932,31 @@
 					<section>
 						<h2>ReactFiberReconciler</h2>
 					</section>
+					<section data-background="lib/img/hellz-yeah.gif">
+						<h2 class="shadow">React</h2>
+					</section>
+					<section>
+						<h2 class="shadow">Fiber</h2>
+						<blockquote>
+							React Fiber is an internal engine change.
+						</blockquote>
+						<p>- <a href="https://medium.freecodecamp.org/lets-fall-in-love-with-react-fiber-90f2e1f68ded" target="_blank" rel="noopener noreferrer">FreeCodeCamp</a></p>
+						<aside class="notes">Ryan Yurkanin</aside>
+					</section>
+					<section>
+						<h2>Reconciler</h2>
+						<blockquote>
+							<p>React will walk through the virtual tree, find what’s changed, and update as little as it can.</p>
+							<p>This could mean updating one class attribute, or it could mean tearing down the whole DOM. This is <a href="https://reactjs.org/docs/reconciliation.html" target="_blank" rel="noopener noreferrer">Reconciliation</a>.</p>
+						</blockquote>
+						<p>- <a href="https://medium.freecodecamp.org/lets-fall-in-love-with-react-fiber-90f2e1f68ded" target="_blank" rel="noopener noreferrer">FreeCodeCamp</a></p>
+						<aside class="notes">Ryan Yurkanin</aside>
+					</section>
+					<section>
+						<h2 class="shadow">moar magic</h2>
+					</section>
 					<section data-background="lib/img/back.gif">
-						<h3 class="shadow">We'll come back to that.</h3>
+						<h3 class="shadow boldish">We'll come back to that.</h3>
 					</section>
 					<section>
 						<h2>ReactDOM.render</h2>
