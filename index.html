@@ -227,12 +227,12 @@
 						<h3>This is literally all <a target="_blank" rel="noopener noreferrer" href="https://github.com/facebook/react/blob/659a29cecf74301532354261369e9048aac6e20f/packages/react/src/React.js#L36-L65">React</a> is.</h3>
 					</section>
 					<section data-background="lib/img/nonlooped_gifs/not-so-scary2.gif">
-						<h2 class="shadow">Time to get your hardhats on!</h2>
 					</section>
 					<section data-background="lib/img/hardhat.gif">
-						<h2 class="shadow">Let's do some code spelunking!</h2>
+						<h2 class="shadow">Time to get your hardhats on!</h2>
 					</section>
 					<section data-background="lib/img/spelunking.gif">
+						<h2 class="shadow">Let's do some code spelunking!</h2>
 					</section>
 					<section>
 						<h3>react/packages/react/src/React.js</h3>
@@ -1313,15 +1313,15 @@
 						<pre><code class="javascript" data-trim data-noescape contenteditable>	
 							class Protest extends React.Component {
 								render() {
-									return <div className="protest-div">
+									return &lt;div className="protest-div"&gt;
 										{this.props.chant}
-									</div>;
+									&lt;/div&gt;;
 								}
 							}
 
 							const rootElement = document.getElementById('root');
 
-							const element = <Protest chant="Always together, never div-ided." />;
+							const element = &lt;Protest chant="Always together, never div-ided." /&gt;;
 
 							ReactDOM.render(element, rootElement);
 						</code></pre>
@@ -1346,7 +1346,7 @@
 						<aside class="notes">Well, abstraction is important</aside>
 					</section>
 					<section>
-						<h3>react/packages/react-dom/</h3>
+						<h2>react/packages/react-dom/</h2>
 					</section>
 					<section>
 						<ul>
@@ -1378,6 +1378,10 @@
 								);
 							},
 						</code></pre>
+					</section>
+					<section>
+						<h3>react/packages/react-dom/src/client/ReactDOM.js</h3>
+						<aside class="notes">We're still inside the ReactDOM file.</aside>
 					</section>
 					<section>
 						<h2>legacyRenderSubtreeIntoContainer</h2>
@@ -1500,8 +1504,9 @@
 					</section>
 					<section data-background="lib/img/react-reactsharedinternals.png"></section>
 					<section data-background="lib/img/reactsharedinternals.png"></section>
+					<section data-background="lib/img/reactcurrentowner.png"></section>
 					<section>
-						<a class="fragment current-fragment visible" target="_blank" rel="noopener noreferrer" href="https://github.com/facebook/react/blob/master/packages/react/src/React.js">React.js</a>
+						<a target="_blank" rel="noopener noreferrer" href="https://github.com/facebook/react/blob/master/packages/react/src/React.js">React.js</a>
 						<p class="fragment current-fragment visible">to</p>
 						<a class="fragment current-fragment visible" target="_blank" rel="noopener noreferrer" href="https://github.com/facebook/react/blob/master/packages/react/src/ReactSharedInternals.js">ReactSharedInternals.js</a><br>
 						<p class="fragment current-fragment visible">to</p>
