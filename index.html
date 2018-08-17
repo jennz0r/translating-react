@@ -61,7 +61,7 @@
 					</section>
 					<section data-background="lib/img/nonlooped_gifs/what-is-that2.gif">
 					</section>
-					<section data-background="lib/img/nonlooped_gifs/components.gif">
+					<section data-background="lib/img/components.gif">
 						<h1 class="shadow">COMPONENTS!</h1>
 					</section>
 					<section data-background="lib/img/nonlooped_gifs/what-is-that.gif">
@@ -77,6 +77,7 @@
 					</section>
 					<section>
 						<h2><a target="_blank" rel="noopener noreferrer" href="https://reactjs.org/">ReactJS</a></h2>
+						<aside class="notes">I don't know, but let's start by looking at their website.</aside>
 					</section>
 					<section data-background="lib/img/react-docs.png">
 						<aside class="notes">Lots of helpful documentation on how to get started using React. But not a lot about the inner workings of React</aside>
@@ -126,7 +127,7 @@
 					<section>
 						<p>Honestly, sometimes I forget that React is actually just JavaScript.</p>
 					</section>
-					<section data-background="lib/img/nonlooped_gifs/components.gif">
+					<section data-background="lib/img/components.gif">
 						<h1 class="shadow">COMPONENTS!</h1>
 					</section>
 					<section data-background="lib/img/nonlooped_gifs/jsx.gif">
@@ -138,14 +139,14 @@
 						<aside class="notes"><a href="https://reactjs.org/docs/faq-internals.html">virtual dom on react docs</a></aside>
 					</section>
 					<section>
-						<h1>React</h1>
+						<p>Buuut, we're talking about React.</p>
 					</section>
 					<section>
 						<h3>Oh yeah, it's open source!</h3>
 						<p class="fragment current-fragment visible"><a target="_blank" rel="noopener noreferrer" href="https://github.com/facebook/react/blob/659a29cecf74301532354261369e9048aac6e20f/packages/react/src/React.js">GitHub</a></p>
 					</section>
 					<section data-background="lib/img/react-github.png">
-						<aside class="notes">Say some thing about React being open source and available etc.</aside>
+						<aside class="notes"></aside>
 					</section>
 					<section data-background="lib/img/react-react-github.png">
 						<aside class="notes">Let's start by taking a look at react > packages > react > React.js</aside>
@@ -153,6 +154,7 @@
 					<section data-background="lib/img/react-react-react-github.png">
 					</section>
 					<section>
+						<h2>react/src/React.js</h2>
 						<pre><code class="javascript" data-trim data-noescape contenteditable>
 							import ReactVersion from 'shared/ReactVersion';
 							import {
@@ -226,12 +228,12 @@
 					<section data-background="lib/img/nonlooped_gifs/not-so-scary2.gif">
 					</section>
 					<section>
-						<h2>Get your hardhats on!</h2>
+						<h2>Time to get your hardhats on!</h2>
 					</section>
 					<section data-background="lib/img/hardhat.gif">
 					</section>
 					<section>
-						<h2>It's time to do some code spelunking!</h2>
+						<h2>Let's do some code spelunking!</h2>
 					</section>
 					<section data-background="lib/img/spelunking.gif">
 					</section>
@@ -511,7 +513,7 @@
 							 * @internal
 							 */
 						</code></pre>
-						<aside class="notes">Don't use new to call the ReactElement factory method. Just call the factory method!</aside>
+						<aside class="notes">The initial comments about ReactElement.</aside>
 					</section>
 					<section>
 						<h2>ReactElement in ReactElement.js</h2>
@@ -572,6 +574,7 @@
 								return element;
 							};
 						</code></pre>
+						<aside class="notes">The ReactElement factory code.</aside>
 					</section>
 					<section>
 						<pre><code class="javascript" data-trim data-noescape contenteditable>
@@ -588,6 +591,9 @@
 								// Record the component responsible for creating this element.
 								_owner: owner,
 							};
+							.
+							.
+							return element;
 						</code></pre>
 					</section>
 					<section>
@@ -673,6 +679,15 @@
 					<section data-background="lib/img/jsx-fb.png">
 						<aside class="notes">https://facebook.github.io/jsx/</aside>
 					</section>
+					<section data-background="lib/img/jsx-logo1.png">
+						<aside class="notes"><a href="https://github.com/jsx/jsx/issues/9" class="fragment current-fragment visible">JSX GitHub Issues</a></aside>
+					</section>
+					<section data-background="lib/img/jsx-logo2.png">
+						<aside class="notes"><a href="https://github.com/jsx/jsx/issues/9" class="fragment current-fragment visible">JSX GitHub Issues</a></aside>
+					</section>
+					<section data-background="lib/img/jsx-logo3.png">
+						<aside class="notes"><a href="https://github.com/jsx/jsx/issues/9" class="fragment current-fragment visible">JSX GitHub Issues</a></aside>
+					</section>
 					<section>
 						<h2>JavaScript XML</h2>
 						<p>XML-like syntax extension to ECMAScript</p>
@@ -715,11 +730,22 @@
 						<p><a href="https://babeljs.io/repl/#?babili=false&browsers=&build=&builtIns=false&spec=false&loose=false&code_lz=GYVwdgxgLglg9mABABwE5ygUwM5QBQCUiA3gFCKKqZQipIA8AJjAG6IQA2AhttgHJcAtpgC8AIjQYcUALTMWYgHwBBDgHcuAT2yIocAObUAFplQAaRGEwtTieTJiNMjAHT0A9PMUBuUgF8gA&debug=false&forceAllTransforms=false&shippedProposals=false&circleciRepo=&evaluate=false&fileSize=false&sourceType=module&lineWrap=true&presets=react&prettier=false&targets=&version=6.26.0&envVersion=">Babel Transpilation</a> of our original ReactElement</p>
 					</section>
 					<section data-background="lib/img/babel.png"></section>
+
+
+
 					<section>
 						<h2>Protected Words</h2>
 						<p>Since JSX is closer to JavaScript than to HTML, React DOM uses camelCase property naming convention instead of HTML attribute names.</p>
 						<p>For example, class becomes className in JSX, and tabindex becomes tabIndex.</p>
+
+
+
 					</section>
+
+
+
+
+
 					<section>
 						<h2>CURLY BRACES</h2>
 						<h3>What are you???</h3>
@@ -747,13 +773,9 @@
 						<h3 class="shadow boldish">We are living in a JSX world.<br>And I am a JavaScript girl.</h3>
 					</section>
 					<section>
-						<h2>Logo?</h2>
-						<a href="https://github.com/jsx/jsx/issues/9" class="fragment current-fragment visible">JSX GitHub Issues</a>
-					</section>
-					<section>
 						<p>Now that we have an easier way of using React.createElement, let's make some...</p>
 					</section>
-					<section data-background="lib/img/nonlooped_gifs/components.gif">
+					<section data-background="lib/img/components.gif">
 						<h1 class="shadow">COMPONENTS!</h1>
 					</section>
 				</section>
@@ -822,7 +844,7 @@
 							<li>react-dom</li>
 							<ul>
 								<li>findDOMNode</li>
-								<li>render</li>
+								<li class="fragment highlight-blue">render</li>
 								<li>unmountComponentAtNode</li>
 							</ul>
 						</ul>
@@ -952,25 +974,8 @@
 						<p>- <a href="https://medium.freecodecamp.org/lets-fall-in-love-with-react-fiber-90f2e1f68ded" target="_blank" rel="noopener noreferrer">FreeCodeCamp</a></p>
 						<aside class="notes">Ryan Yurkanin</aside>
 					</section>
-					<section>
+					<section data-background="lib/img/magic2.gif">
 						<h2 class="shadow">moar magic</h2>
-					</section>
-					<section data-background="lib/img/back.gif">
-						<h3 class="shadow boldish">We'll come back to that.</h3>
-					</section>
-					<section>
-						<h2>ReactDOM.render</h2>
-						<pre><code class="javascript" data-trim data-noescape contenteditable>
-							const rootElement = document.getElementById('root');
-
-							const element = React.createElement(
-								'div',
-								{ className: 'protest-div' },
-								'Always together, never div-ided'
-							);
-
-							ReactDOM.render(element, rootElement);
-						</code></pre>
 					</section>
 				</section>
 
