@@ -42,16 +42,21 @@
 						<img src="lib/img/eagle.jpg" alt="jenn holding an eagle" class="img-no-format" width="400px" height="300px" />
 						<img src="lib/img/camel.jpg" alt="jenn riding a camel" class="img-no-format" width="400px" height="300px" />
 					</section>
-					<section alt="envoy logo made of lights" data-background="lib/img/envoy-lights.jpg"></section>
-					<section>
-						<div>
-							<h1>Envoy</h1>
-							<h3>We're <a target="_blank" rel="noopener noreferrer" href="https://envoy.com/jobs/">hiring</a>!</h3>
+					<section alt="mode logo" data-background="lib/img/mode.jpg"></section>
+					<section data-background="#191047" style="top: 0;">
+						<div style="
+							background: url('lib/img/mode-background.png') repeat center;
+							height: 80vh;
+							display: flex;
+							align-items: center;
+							justify-content: center;
+							flex-direction: column;
+							">
+							<h1 class="light-black-bg" style="margin:0; padding: 10px 20px;">Mode</h1>
+							<!-- <img src="lib/img/mode-background.png" class="img-no-format" height="400px"> -->
+							<h3 class="light-black-bg" style="margin:0; padding: 12px;">We're <a target="_blank" rel="noopener noreferrer" href="https://mode.com/careers">hiring</a>!</h3>
 						</div>
 					</section>
-					<section alt="dogs at envoy hq" data-background="lib/img/dogs.png"></section>
-					<section alt="new corgi puppy at envoy hq" data-background="lib/img/puppy2.png"></section>
-					<section alt="new samoyed puppy at envoy hq" data-background="lib/img/puppy.png"></section>
 				</section>
 
 				<section>
@@ -1337,6 +1342,92 @@
 						</code></pre>
 					</section>
 					<section data-background="lib/img/notime.gif"></section>
+					<section data-background="lib/img/reactbaseclasses.png">
+						<aside class="notes"><a target="_blank" rel="noopener noreferrer" href="https://github.com/facebook/react/blob/659a29cecf74301532354261369e9048aac6e20f/packages/react/src/ReactBaseClasses.js">React Base Classes in GitHub</a></aside>
+					</section>
+					<section>
+						<h3>react/packages/react/src/ReactBaseClasses.js</h3>
+						<pre><code class="javascript" data-trim data-noescape contenteditable>	
+								/**
+								* Sets a subset of the state. Always use this to mutate
+								* state. You should treat `this.state` as immutable.
+								*
+								* There is no guarantee that `this.state` will be immediately updated, so
+								* accessing `this.state` after calling this method may return the old value.
+								*
+								* There is no guarantee that calls to `setState` will run synchronously,
+								* as they may eventually be batched together.  You can provide an optional
+								* callback that will be executed when the call to setState is actually
+								* completed.
+								*
+								* When a function is provided to setState, it will be called at some point in
+								* the future (not synchronously). It will be called with the up to date
+								* component arguments (state, props, context). These values can be different
+								* from this.* because your function may be called after receiveProps but before
+								* shouldComponentUpdate, and this new state, props, and context will not yet be
+								* assigned to this.
+								*
+								* @param {object|function} partialState Next partial state or function to
+								*        produce next partial state to be merged with current state.
+								* @param {?function} callback Called after state is updated.
+								* @final
+								* @protected
+								*/
+							 Component.prototype.setState = function(partialState, callback) {
+								 invariant(
+									 typeof partialState === 'object' ||
+										 typeof partialState === 'function' ||
+										 partialState == null,
+									 'setState(...): takes an object of state variables to update or a ' +
+										 'function which returns an object of state variables.',
+								 );
+								 this.updater.enqueueSetState(this, partialState, callback, 'setState');
+							 };							 
+						</code></pre>
+					</section>
+					<section>
+						<h2>Notes on State</h2>
+						<ul>
+							<li class="fragment highlight-blue">`setState` sets a subset of the state.</li>
+							<li class="fragment highlight-blue">Treat `this.state` as immutable.</li>
+							<li class="fragment highlight-blue">No guarantee `this.state` will be immediately updated.</li>
+							<li class="fragment highlight-blue">No guarantee that calls to `setState` run synchronously.</li>
+							<li class="fragment highlight-blue">Your function may be called after `receiveProps` but before `shouldComponentUpdate`</li>
+						</ul>
+					</section>
+					<section>
+						<pre><code class="javascript" data-trim data-noescape contenteditable>	
+							class Protest extends React.Component {
+								constructor(props) {
+									super(props);
+									this.state = {
+										emergency: true,
+										police: true
+									};
+								}
+
+								componentDidMount() {
+									this.setState({
+										police: false
+									})
+								}
+
+								render() {
+									return &lt;div className="protest-div"&gt;
+										&lt;p&gt;{this.props.chant}&lt;/p&gt;
+										&lt;p&gt;Is there a state of emergency? {this.state.emergency ? 'yes' : 'no'}&lt;/p&gt;
+										&lt;p&gt;Are we in a police state? {this.state.police ? 'yes' : 'no'}&lt;/p&gt;
+									&lt;/div&gt;;
+								}
+							}
+
+							const rootElement = document.getElementById('root');
+
+							const element = &lt;Protest chant="Always together, never div-ided." /&gt;;
+
+							ReactDOM.render(element, rootElement);
+						</code></pre>
+					</section>
 					<section data-background="lib/img/nonlooped_gifs/props.gif">
 						<aside class="notes">https://kinardist-media.com/ @the_kinardist</aside>
 					</section>
@@ -1555,7 +1646,7 @@
 					</section>
 					<section data-background="lib/img/no-facebook.png"></section>
 					<section>
-						<img src="lib/img/ember.png" alt="ember tomster logo" class="img-no-format" width="650"/>
+						<img src="lib/img/angular.png" alt="angular logo" class="img-no-format" width="650"/>
 					</section>
 					<section>
 						<h2>Big THANKS!</h2>

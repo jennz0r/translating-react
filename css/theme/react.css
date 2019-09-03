@@ -310,3 +310,7 @@ body {
 
 .reveal .smallish {
   font-size: 0.9em; }
+
+.light-black-bg {
+  background-color: rgba(0, 0, 0, 0.25);
+}
