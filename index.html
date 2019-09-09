@@ -1488,7 +1488,6 @@
 							return true;
 						}
 						</code></pre>
-						<aside class="notes">Notice most of all that we update the instance's props, state, and context even if the check is false. Lol.</aside>
 					</section>
 					<section>
 						<h3>react/packages/react-reconciler/src/ReactFiberClassComponent.js</h3>
@@ -1533,14 +1532,17 @@
 						</code></pre>
 					</section>
 					<section>
+						<h2>What's the stateNode?</h2>
+					</section>
+					<section>
 						<h2>stateNode</h2>
 						<blockquote>
 							Holds the reference to the class instance of a component, a DOM node,
 							or other React element type associated with the fiber node. In general,
 							we can say that this property is used to hold the local state associated with a fiber.
 						</blockquote>
-						<p>- <a href="https://indepth.dev/inside-fiber-in-depth-overview-of-the-new-reconciliation-algorithm-in-react/">FreeCodeCamp</a></p>
-						<aside class="notes">Maxim Koretskyi</aside>
+						<p>- <a href="https://indepth.dev/inside-fiber-in-depth-overview-of-the-new-reconciliation-algorithm-in-react/">InDepth</a></p>
+						<aside class="notes">Maxim Koretskyi "Inside Fiber: in-depth overview of the new reconciliation algorithm in React"</aside>
 					</section>
 					<section>
 						<h2>More on Fiber later...</h2>
@@ -1746,6 +1748,12 @@
 					<section data-background="lib/img/magic2.gif">
 						<h2 class="shadow">MORE REACT MAGIC</h2>
 					</section>
+					<section data-background="lib/img/fiber.gif"></section>
+					<section>
+						<h2>react/packages/react-reconciler/src/ReactFiberClassComponent.js</h2>
+					</section>
+					<section data-background="lib/img/indepth.png"></section>
+					<section data-background="lib/img/jenncreighton.png"></section>
 					<section data-background="lib/img/secret.gif"></section>
 					<section data-background="lib/img/secrets-fb.jpg"></section>
 				</section>
