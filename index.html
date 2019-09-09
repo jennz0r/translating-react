@@ -42,7 +42,7 @@
 						<img src="lib/img/eagle.jpg" alt="jenn holding an eagle" class="img-no-format" width="400px" height="300px" />
 						<img src="lib/img/camel.jpg" alt="jenn riding a camel" class="img-no-format" width="400px" height="300px" />
 					</section>
-					<section alt="mode logo" data-background="lib/img/mode.jpg"></section>
+					<section alt="mode logo" data-background="lib/img/mode-logo.png"></section>
 					<section data-background="#191047" style="top: 0;">
 						<div style="
 							background: url('lib/img/mode-background.png') repeat center;
@@ -53,8 +53,8 @@
 							flex-direction: column;
 							">
 							<h1 class="light-black-bg" style="margin:0; padding: 10px 20px;">Mode</h1>
-							<!-- <img src="lib/img/mode-background.png" class="img-no-format" height="400px"> -->
-							<h3 class="light-black-bg" style="margin:0; padding: 12px;">We're <a target="_blank" rel="noopener noreferrer" href="https://mode.com/careers">hiring</a>!</h3>
+							<h3 class="light-black-bg" style="padding: 12px;">We're hiring!</h3>
+							<a class="light-black-bg" target="_blank" rel="noopener noreferrer" href="https://mode.com/careers">https://mode.com/careers</a>
 						</div>
 					</section>
 				</section>
@@ -718,6 +718,9 @@
 						<p>React comes with the default set of syntax-transformers that ship with Babel</p>
 					</section>
 					<section data-background="lib/img/babel-jsx.png">
+						<aside class="notes"><a href="https://babeljs.io/docs/en/6.26.3/babel-plugin-transform-react-jsx" target="_blank" rel="noopener noreferrer">babel-plugin-transform-react-jsx</a></aside>
+					</section>
+					<section data-background="lib/img/babel-jsx-new.png">
 						<aside class="notes"><a href="https://babeljs.io/docs/en/babel-plugin-transform-react-jsx/" target="_blank" rel="noopener noreferrer">babel-plugin-transform-react-jsx</a></aside>
 					</section>
 					<section>
@@ -1342,6 +1345,15 @@
 						</code></pre>
 					</section>
 					<section data-background="lib/img/notime.gif"></section>
+				</section>
+				<section>
+					<section>
+						<h1>React State</h1>
+						<img src="lib/img/react.svg" alt="react logo" class="img-no-format" width="100px" height="100px"/>	
+					</section>
+					<section>
+						<h2>setState</h2>
+					</section>
 					<section data-background="lib/img/reactbaseclasses.png">
 						<aside class="notes"><a target="_blank" rel="noopener noreferrer" href="https://github.com/facebook/react/blob/659a29cecf74301532354261369e9048aac6e20f/packages/react/src/ReactBaseClasses.js">React Base Classes in GitHub</a></aside>
 					</section>
@@ -1373,16 +1385,16 @@
 								* @final
 								* @protected
 								*/
-							 Component.prototype.setState = function(partialState, callback) {
-								 invariant(
-									 typeof partialState === 'object' ||
-										 typeof partialState === 'function' ||
-										 partialState == null,
-									 'setState(...): takes an object of state variables to update or a ' +
-										 'function which returns an object of state variables.',
-								 );
-								 this.updater.enqueueSetState(this, partialState, callback, 'setState');
-							 };							 
+							Component.prototype.setState = function(partialState, callback) {
+								invariant(
+									typeof partialState === 'object' ||
+										typeof partialState === 'function' ||
+										partialState == null,
+									'setState(...): takes an object of state variables to update or a ' +
+										'function which returns an object of state variables.',
+								);
+								this.updater.enqueueSetState(this, partialState, callback, 'setState');
+							};							 
 						</code></pre>
 					</section>
 					<section>
@@ -1395,6 +1407,145 @@
 							<li class="fragment highlight-blue">Your function may be called after `receiveProps` but before `shouldComponentUpdate`</li>
 						</ul>
 					</section>
+					<section><h2>receiveProps</h2></section>
+					<section data-background="lib/img/receive-props.png"></section>
+					<section data-background="lib/img/will-receive-props.png"></section>
+					<section data-background="lib/img/comp-will-receive-props.png"></section>
+					<section>
+						<h2>react/packages/react-reconciler/src/ReactFiberClassComponent.js</h2>
+					</section>
+					<section data-background="lib/img/component-will-receive-props.png"></section>
+					<section>
+						<pre><code class="javascript" data-trim data-noescape conenteditable>
+							function callComponentWillReceiveProps(
+								workInProgress,
+								instance,
+								newProps,
+								nextContext,
+							) {
+								const oldState = instance.state;
+								startPhaseTimer(workInProgress, 'componentWillReceiveProps');
+								if (typeof instance.componentWillReceiveProps === 'function') {
+									instance.componentWillReceiveProps(newProps, nextContext);
+								}
+								if (typeof instance.UNSAFE_componentWillReceiveProps === 'function') {
+									instance.UNSAFE_componentWillReceiveProps(newProps, nextContext);
+								}
+								stopPhaseTimer();
+
+								if (instance.state !== oldState) {
+									// Removed some stuff related to being in Dev environment
+									classComponentUpdater.enqueueReplaceState(instance, instance.state, null);
+								}
+							}
+						</code></pre>
+						<aside class="notes">The main thing we do here is enqueue the replacement of old state with new state</aside>
+					</section>
+					<section data-background="lib/img/receive-props-docs.png">
+						<aside class="notes">Turns out "UNSAFE" means a deprecated lifecycle method</aside>
+					</section>
+					<section><h2>shouldComponentUpdate</h2></section>
+					<section data-background="lib/img/should-component-update.png"></section>
+					<section>
+						<pre><code class="javascript" data-trim data-noescape contenteditable>
+						function checkShouldComponentUpdate(
+							workInProgress,
+							ctor,
+							oldProps,
+							newProps,
+							oldState,
+							newState,
+							nextContext,
+						) {
+							const instance = workInProgress.stateNode;
+							if (typeof instance.shouldComponentUpdate === 'function') {
+								startPhaseTimer(workInProgress, 'shouldComponentUpdate');
+								const shouldUpdate = instance.shouldComponentUpdate(
+									newProps,
+									newState,
+									nextContext,
+								);
+								stopPhaseTimer();
+
+								if (__DEV__) {
+									warningWithoutStack(
+										shouldUpdate !== undefined,
+										'%s.shouldComponentUpdate(): Returned undefined instead of a ' +
+											'boolean value. Make sure to return true or false.',
+										getComponentName(ctor) || 'Component',
+									);
+								}
+
+								return shouldUpdate;
+							}
+
+							if (ctor.prototype && ctor.prototype.isPureReactComponent) {
+								return (
+									!shallowEqual(oldProps, newProps) || !shallowEqual(oldState, newState)
+								);
+							}
+
+							return true;
+						}
+						</code></pre>
+						<aside class="notes">Notice most of all that we update the instance's props, state, and context even if the check is false. Lol.</aside>
+					</section>
+					<section>
+						<h3>react/packages/react-reconciler/src/ReactFiberClassComponent.js</h3>
+						<pre><code class="javascript" data-trim data-noescape contenteditable>
+							instance.componentWillReceiveProps(
+								newProps,
+								nextContext
+							);
+						</code></pre>
+						<pre><code class="javascript" data-trim data-noescape contenteditable>
+							const shouldUpdate = instance.shouldComponentUpdate(
+								newProps,
+								newState,
+								nextContext,
+							);
+
+							return shouldUpdate;
+						</code></pre>
+					</section>
+					<section>
+						<h2>What's the instance?</h2>
+					</section>
+					<section>
+						<pre><code class="javascript" data-trim data-noescape contenteditable>
+							const instance = workInProgress.stateNode;
+						</code></pre>
+						<aside class="notes">This is from the checkShouldComponentUpdate method.</aside>
+					</section>
+					<section>
+						<h2>What's the workInProgress?</h2>
+					</section>
+					<section>
+						<pre><code class="javascript" data-trim data-noescape contenteditable>
+							// Invokes the update life-cycles and returns false if it shouldn't rerender.
+							function updateClassInstance(
+								current: Fiber,
+								workInProgress: Fiber,
+								ctor: any,
+								newProps: any,
+								renderExpirationTime: ExpirationTime,
+							)
+						</code></pre>
+					</section>
+					<section>
+						<h2>stateNode</h2>
+						<blockquote>
+							Holds the reference to the class instance of a component, a DOM node,
+							or other React element type associated with the fiber node. In general,
+							we can say that this property is used to hold the local state associated with a fiber.
+						</blockquote>
+						<p>- <a href="https://indepth.dev/inside-fiber-in-depth-overview-of-the-new-reconciliation-algorithm-in-react/">FreeCodeCamp</a></p>
+						<aside class="notes">Maxim Koretskyi</aside>
+					</section>
+					<section>
+						<h2>More on Fiber later...</h2>
+					</section>
+					<section data-background="lib/img/fiber.gif"></section>
 					<section>
 						<pre><code class="javascript" data-trim data-noescape contenteditable>	
 							class Protest extends React.Component {
@@ -1431,6 +1582,7 @@
 					<section data-background="lib/img/nonlooped_gifs/props.gif">
 						<aside class="notes">https://kinardist-media.com/ @the_kinardist</aside>
 					</section>
+					<section data-background="lib/img/state.gif"></section>
 					<section>
 						<h2>Now that we have a component, let's render it to the DOM</h2>
 					</section>
@@ -1646,14 +1798,22 @@
 					</section>
 					<section data-background="lib/img/no-facebook.png"></section>
 					<section>
-						<img src="lib/img/angular.png" alt="angular logo" class="img-no-format" width="650"/>
+						<img src="lib/img/angular.png" alt="angular logo" class="img-no-format" width="400"/>
+					</section>
+					<section data-background="lib/img/google.png">
+						<aside class="notes">Or saying no to Angular?</aside>
 					</section>
 					<section>
-						<h2>Big THANKS!</h2>
+						<img src="lib/img/freeshrugs.jpg" alt="person holding a sign that says free shrugs" class="img-no-format" width="450"/>
 					</section>
-					<section data-background="lib/img/egghead.png"></section>
 					<section>
-						<img src="lib/img/thanks.gif" alt="pizza la commercial pizza with pretty eyes saying thank you my friends" class="img-no-format" width="800"/>
+						<img src="lib/img/componentsconf.png" alt="componentsconf legacy_renderSubtreeIntoContainer" class="img-no-format" width="300"/>
+					</section>
+					<section data-background="lib/img/components.gif">
+						<h1 class="shadow">COMPONENTS!</h1>
+					</section>
+					<section>
+						<img src="lib/img/thankyou.gif" alt="person dressed as a koala saying thanks" class="img-no-format" width="800"/>
 					</section>
 					<section>
 						<a target="_blank" rel="noopener noreferrer" href="http://mochimachine.com/">Jennifer Wong</a> | <a target="_blank" rel="noopener noreferrer" href="https://twitter.com/mybluewristband">@mybluewristband</a></p>
